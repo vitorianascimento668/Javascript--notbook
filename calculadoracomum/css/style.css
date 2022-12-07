@@ -1,0 +1,59 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background:linear-gradient( to right,rgba(255, 0, 179, 0.178),rgba(255, 0, 242, 0.199),rgba(255, 0, 179, 0.288));
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:25px;
+}
+h1{
+    text-align:center;
+    font-size:20px;
+    padding-bottom: 40px;
+    padding-top: 10px;
+}
+.digitos{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+.num--divisao{
+    display:flex;
+    flex-direction:column;
+}
+
+.caracteres{
+    display: grid;
+    grid-template-columns:3fr 3fr 3fr 3fr;
+    column-gap: unset;
+    text-align:center;
+
+}
+.num{
+    flex: 1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid black;
+    width:70px;
+    height:70px;
+
+}
+.zero{
+    display:grid;
+    grid-template-columns: 1fr;
+}
+.mais, .menos, .dividir,.porcetagem,.restodadiv,.vezes,.limpar,.igual,.ponto,.corrige{
+    border:1px solid black;
+    width:70px;
+    height:70px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.limpar,.corrige{
+    font-size:18px;
+}
