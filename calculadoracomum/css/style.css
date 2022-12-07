@@ -71,6 +71,10 @@ h1{
     margin:4px;
 
 }
+.igual{
+    background-color:white;
+    font-size:30px;
+}
 .limpar{
     background-color:rgba(207, 56, 56, 0.212);
 }
