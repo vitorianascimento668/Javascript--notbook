@@ -1,7 +1,3 @@
-@font-face {
-    font-family:"NerkoOne-Regular" ;
-    src: url('./NerkoOne-Regular.ttf');
-}
 *{
     margin:0;
     padding:0;
@@ -13,9 +9,8 @@ body{
     font-size:25px;
 }
 h1{
-    font-family: 'NerkoOne-Regular';
     text-align:center;
-    font-size:40px;
+    font-size:20px;
     padding-bottom: 40px;
     padding-top: 10px;
 }
@@ -38,16 +33,13 @@ h1{
 
 }
 .num{
-    padding:5px;
-    margin:4px;
-    border-radius: 50%;
     flex: 1;
     display:flex;
     justify-content: center;
     align-items: center;
     border:1px solid black;
-    width:50px;
-    height:50px;
+    width:70px;
+    height:70px;
 
 }
 .zero{
@@ -55,20 +47,13 @@ h1{
     grid-template-columns: 1fr;
 }
 .mais, .menos, .dividir,.porcetagem,.restodadiv,.vezes,.limpar,.igual,.ponto,.corrige{
-    padding:5px;
     border:1px solid black;
-    border-radius: 50%;
-    width:50px;
-    height:50px;
+    width:70px;
+    height:70px;
     display:flex;
     justify-content: center;
     align-items: center;
-    margin:4px;
-
 }
 .limpar,.corrige{
-    font-size: 15px;
-    font-family: 'NerkoOne-Regular';
-    padding: 15px;
-
+    font-size:18px;
 }
