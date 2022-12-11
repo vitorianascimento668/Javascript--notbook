@@ -10,42 +10,43 @@
 </head>
 <body>
     <h1>Calculadora </h1>
-    <div class="digitos">
-        <div>
-            <div class="visor"></div>
-        </div>
+    <div class="visor "></div>
+    <div class="digitos ">   
         <div class="caracteres"> 
-            <div class="limpar">Limpar</div>  
-            <div class="porcetagem">%</div>
-            <div class="dividir"> ÷</div>
-            <div class="vezes">*</div>
+            <div class="limpar" onclick="limpar()">Limpar</div>  
+            <div class="operac porcetagem" data-ope="%">%</div>
+            <div class=" operac dividir" data-ope="/"> ÷</div>
+            <div class="operac vezes" data-ope="*">*</div>
             <div class="num" data-num="7">7</div>
             <div class="num" data-num="8">8</div>
             <div class="num" data-num="9">9</div>
-            <div class="mais">+</div>
+            <div class="operac mais" data-ope="+">+</div>
             <div class="num" data-num="4">4</div>
             <div class="num"data-num="5">5</div>
             <div class="num"data-num="6">6</div>
-            <div class="menos">-</div> 
+            <div class="operac menos" data-ope="-">-</div> 
             <div class="num"data-num="1">1</div>
             <div class="num" data-num="2">2</div>
             <div class="num" data-num="3">3</div>
-            <div class="restodadiv">//</div>
+            <div class="operac restodadiv" data-ope="//">//</div>
             <div class="num zero" data-num="0">0</div>
-            <div class="igual">=</div>
-            <div class="ponto">.</div>
-            <div class="corrige">Corrige</div>
-
+            <div class="operac igual" data-ope="=">=</div>
+            <div class="ponto" data-func=".">.</div>
+            <div class="corrige" onclick="corrige()">Corrige</div>
 
         </div>  
+        <div class="resultado">
+            <h2>Resultado da operação</h2>
+            <div class="valor1">10</div>
+            <div class="valorflexi"><div class="sinaldaOpe"> + </div>
+            <div class="valor2"> 20</div></div>
+            <div class="traço"></div>
+            <div class="res"> 30</div>
         
-        
-            
-
-
-
+         </div>  
 
     </div>
+
 
 
 
