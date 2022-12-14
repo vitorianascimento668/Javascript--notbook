@@ -6,16 +6,18 @@ let resultado_amais = document.querySelector('.valor2')
 let resultado = document.querySelector('.resultado')
 let digitos = document.querySelector('.digitos')
 let dataNum = 0
-let operac_valor = ''
-let tirando_repetição = []
-let v1 = []
 let au = 0
 var v2 = ''
+let operac_valor = ''
+let v1 = []
+
 
 function numeros(){
     operac.forEach((evento) =>{
         evento.addEventListener("click",()=>{
             operac_valor = evento.getAttribute('data-ope')
+            limpaResultado()
+
             if(operac_valor == '='){
                 /* aqui ainda está dando alguma demora de
                 resposta, sendo necessario teclar 
@@ -40,13 +42,11 @@ function numeros(){
             }
             for (let i in v1){
 
-                
                 if(i == 0 ){
                     resultado_1.innerHTML = v1[i]
-                }else if(tirando_repetição.indexOf(el) == -1){
+                }else {
                     resultado_amais.innerHTML += `${v1[i]} </br>`
                 }
-                console.log(v1.length)
     }
             
         } 
@@ -67,6 +67,11 @@ function numeros(){
 
  
     }
+
+function limpaResultado(){
+    resultado_1.innerHTML = ''
+    resultado_amais.innerHTML = ''
+}
 
 function limpaTela(){
     if(v2.length < 1){

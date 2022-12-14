@@ -96,10 +96,9 @@ h2{
 
 }
 .resultado{
-    height: 210px;
+    height: 310px;
     min-width: 290px;
     display: none; 
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-left:10px;
