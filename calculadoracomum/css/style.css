@@ -97,11 +97,12 @@ h2{
 }
 .resultado{
     height: 210px;
-    min-width: 330px;
+    min-width: 290px;
     display: none; 
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-left:10px;
     background-color: rgb(207 56 56 / 21%);
     
 }
