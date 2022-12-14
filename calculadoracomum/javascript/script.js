@@ -5,6 +5,7 @@ let resultado_1= document.querySelector('.valor1')
 let resultado_amais = document.querySelector('.valor2')
 let resultado = document.querySelector('.resultado')
 let digitos = document.querySelector('.digitos')
+let sinais_ope = document.querySelector('.sinaldaOpe')
 let dataNum = 0
 let au = 0
 var v2 = ''
@@ -41,7 +42,8 @@ function numeros(){
                 v2 = ''
             }
             for (let i in v1){
-
+                if(operac_valor != '='){
+                sinais_ope.innerHTML = operac_valor}
                 if(i == 0 ){
                     resultado_1.innerHTML = v1[i]
                 }else {
