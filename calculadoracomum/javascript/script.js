@@ -6,10 +6,13 @@ let resultado_amais = document.querySelector('.valor2')
 let resultado = document.querySelector('.resultado')
 let digitos = document.querySelector('.digitos')
 let sinais_ope = document.querySelector('.sinaldaOpe')
+let tela_res = document.querySelector('.res')
+let iguale = document.querySelector('.igual')
 let dataNum = 0
 let au = 0
 var v2 = ''
 let operac_valor = ''
+let calculo = ''
 let v1 = []
 
 
@@ -20,6 +23,8 @@ function numeros(){
             limpaResultado()
 
             if(operac_valor == '='){
+               
+
                 /* aqui ainda está dando alguma demora de
                 resposta, sendo necessario teclar 
                 2x no = para funciona o limpa 
@@ -30,6 +35,7 @@ function numeros(){
                 visor.innerHTML += ` ${operac_valor} `
 
             }
+ 
 
 
             /* Aqui se o usuario digita um valor após aperta o 
@@ -37,22 +43,29 @@ function numeros(){
              apos ser limpa e a tela também*/
              
             if(operac_valor.length > 0){
-                if (v2.length > 0){               
+                if (v2.length > 0){  
                 v1.push(v2)
                 v2 = ''
+                 
             }
+
+
             for (let i in v1){
                 if(operac_valor != '='){
                 sinais_ope.innerHTML = operac_valor}
+
                 if(i == 0 ){
                     resultado_1.innerHTML = v1[i]
                 }else {
                     resultado_amais.innerHTML += `${v1[i]} </br>`
                 }
+                
+
     }
+
+   
             
         } 
-
         })
     })
        num.forEach((e)=>{
@@ -62,13 +75,23 @@ function numeros(){
                 v2 += dataNum
                 visor.innerHTML += dataNum   
 
-       })          
+       })         
 
             
         })
 
- 
+
     }
+
+function igual(){
+
+
+    console.log(au)
+    
+    abrirMeiaTela()
+
+}
+
 
 function limpaResultado(){
     resultado_1.innerHTML = ''
@@ -82,12 +105,6 @@ function limpaTela(){
     }
 }
     
-function igual(){
-    
-    abrirMeiaTela()
-}
-
-
 
 
 function  abrirMeiaTela(){
@@ -97,7 +114,6 @@ function  abrirMeiaTela(){
     resultado.style.left = '0px'
 
 }
-
 numeros()
 
 /*
