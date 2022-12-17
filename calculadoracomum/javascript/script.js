@@ -9,10 +9,10 @@ let sinais_ope = document.querySelector('.sinaldaOpe')
 let tela_res = document.querySelector('.res')
 let iguale = document.querySelector('.igual')
 let dataNum = 0
-let au = 0
+let au = ''
 var v2 = ''
 let operac_valor = ''
-let calculo = ''
+let calculo = 0
 let v1 = []
 
 
@@ -21,10 +21,13 @@ function numeros(){
         evento.addEventListener("click",()=>{
             operac_valor = evento.getAttribute('data-ope')
             limpaResultado()
+            if(operac_valor != '='){
+                au = operac_valor
+            }
 
             if(operac_valor == '='){
-               
-
+                
+                igual()
                 /* aqui ainda está dando alguma demora de
                 resposta, sendo necessario teclar 
                 2x no = para funciona o limpa 
@@ -43,10 +46,22 @@ function numeros(){
              apos ser limpa e a tela também*/
              
             if(operac_valor.length > 0){
-                if (v2.length > 0){  
+                if (v2.length > 0){ 
+                    
+                if(operac_valor == "-" || au == "-"){
+                    if(calculo == 0){
+                        calculo = v2
+                    }else{
+                        calculo-=Number(v2)}
+                }
+                 if(operac_valor == "+" || au == "+"){
+                    calculo+=Number(v2)
+                }
+                    
                 v1.push(v2)
-                v2 = ''
-                 
+                
+
+                    v2 = '' 
             }
 
 
@@ -63,7 +78,7 @@ function numeros(){
 
     }
 
-   
+    
             
         } 
         })
@@ -77,16 +92,12 @@ function numeros(){
 
        })         
 
-            
         })
 
-
+       
     }
-
+    let i = 0
 function igual(){
-
-
-    console.log(au)
     
     abrirMeiaTela()
 
@@ -100,7 +111,6 @@ function limpaResultado(){
 
 function limpaTela(){
     if(v2.length < 1){
-        v1 = []
         visor.innerHTML = ''
     }
 }
