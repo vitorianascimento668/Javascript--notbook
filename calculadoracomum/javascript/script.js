@@ -45,13 +45,18 @@ function opera (){
                 if(v2.length > 0){
                     v1.push(v2)      
                     v2 = "" 
+
                 }
                 
-                
+
             }
+
             
              if(operac_valor != '=' )    {
-                visor.innerHTML += ` ${operac_valor} `
+                if (operac_valor == "/"){
+                    visor.innerHTML += " ÷ "
+                }else{
+                    visor.innerHTML += ` ${operac_valor} `}
                 au = operac_valor
                 
              }
@@ -65,10 +70,7 @@ function opera (){
                 
                }
              if(operac_valor == '='){
-                for(let i in v1){
-
-                }
-                soma() 
+                soma()
 
                 operac_valor = au
             }
@@ -76,13 +78,20 @@ function opera (){
              
 
 
+                if ( operac_valor == "/"){
+                    sinais_ope.innerHTML = "÷" 
+                }else{
+                    sinais_ope.innerHTML =`${au}`
+                   
+
+                }
                 
-                sinais_ope.innerHTML =`${au}` 
                 
                 
                 
 
         })
+
     })
 }
 
@@ -97,11 +106,35 @@ function soma(){
         if(operac_valor == "+" || au == "+"){
             calculo+=Number(soma)
         }
+        if(operac_valor == "*" || au == "*"){
+            if(calculo == 0){
+                calculo = Number(soma)
+            }else{
+                calculo*= Number(soma)}
+        }
+        if(operac_valor == "/" || au == "/"){
+            if(calculo == 0){
+                calculo = Number(soma)
+            }else{
+                calculo/= Number(soma)}
+        }
+            //FALTA A OPERAÇÃO DE PORCETAGEM E A OPERAÇÃO DE
+            // DIVISÃO INTEIRA OU RESTO DA DIVISAO 
+        
+
     })
+    setTimeout(()=>{
+        if(calculo != 0){
+            v1 = []
+            v1.push(calculo)
+            
+        }
+
+    },'1000')
+    
 }
 
 function igual(){
-
     abrirMeiaTela()
 
 }
@@ -123,5 +156,12 @@ function limpaTela(){
         visor.innerHTML = ''
     }
 }
+soma()
 numeros()
 opera()
+
+/*
+1-) Corrigir o erro, pra o meu array somente soma uma x o valor
+2-) Corrigir o if de baixo, para não soma mais a mais
+3-) Depois de fazer conserta os item de porcetagem e resto da div
+*/
