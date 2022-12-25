@@ -35,8 +35,7 @@ function numeros(){
         limpaResultado()
         if (operac_valor == "="){
             opeigual = operac_valor}
-        tela_res.innerHTML = calculo
-        if(operac_valor.length > 0){
+            if(operac_valor.length > 0){
             if(v2.length > 0){
                 v1.push(v2)      
                 v2 = "" 
@@ -55,13 +54,13 @@ function numeros(){
             au = operac_valor
             
          }
+    
         for (let i in v1){
             if(i == 0){
                 resultado_1.innerHTML = ` ${v1[i]} `}
             else{
                     resultado_amais.innerHTML +=  `    ${v1[i]} </br>`
                 }
-               
             
            }
          if(opeigual == '='){
@@ -72,8 +71,6 @@ function numeros(){
             opeigual = ''
             operac_valor = au
             limpaTela()
-            
-
         }
 
          
@@ -88,9 +85,7 @@ function numeros(){
             }
             
             
-            
-            
-
+              
     })
 
 })
@@ -119,17 +114,29 @@ function soma(){
                 }
             }
             if(operac_valor == "*" || au == "*"){
+                if(soma == 0){
+                    calculo = 0
+                }
                 if(calculo == 0){
                     calculo = Number(soma)
                 }else{
                     calculo*= Number(soma)}
             }
             if(operac_valor == "/" || au == "/"){
+
                 if(calculo == 0){
-                    calculo = Number(soma)
+                if(soma == 0){
+                    calculo = 0
+                }
+                   else{ calculo = Number(soma)}
                 }else{
-                    calculo/= Number(soma)}
+                    if(soma == 0){
+                        calculo = 0
+                    }else{
+                    calculo/= Number(soma)}}
             }
+        tela_res.innerHTML = calculo
+
             
         })
            
@@ -143,7 +150,6 @@ function soma(){
 }
 
 function igual(){
-    
     tela_res.innerHTML = v1[0]
     abrirMeiaTela()
 
@@ -164,7 +170,6 @@ function limpaTela(){
     if(v2.length < 1){
         visor.innerHTML = ''
         visor.innerHTML += `${v1[0]}`
-
     }
 }
 numeros()
