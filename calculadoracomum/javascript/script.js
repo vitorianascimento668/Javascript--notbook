@@ -118,6 +118,18 @@ function soma(){
                 }else{
                     calculo*= Number(soma)}
             }
+            if(operac_valor == "%%" || au == "%%"){
+                if(calculo == 0){
+                    calculo = Number(soma)
+                }else{
+                    calculo%= Number(soma)}
+            }
+            if(operac_valor == "%" || au == "%"){
+                if(calculo == 0){
+                    calculo = Number(soma)
+                }else{
+                    calculo= (calculo * Number(soma))/100}
+            }
             if(operac_valor == "/" || au == "/"){
 
                 if(calculo == 0){
