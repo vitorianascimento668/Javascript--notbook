@@ -96,7 +96,6 @@ function numeros(){
 function soma(){
     v1.forEach((soma)=>{   
         igual()
-        
             if(operac_valor == "-" || au == "-"){
                 if(calculo == 0){
                     calculo = Number(soma)
@@ -114,9 +113,6 @@ function soma(){
                 }
             }
             if(operac_valor == "*" || au == "*"){
-                if(soma == 0){
-                    calculo = 0
-                }
                 if(calculo == 0){
                     calculo = Number(soma)
                 }else{
@@ -125,11 +121,13 @@ function soma(){
             if(operac_valor == "/" || au == "/"){
 
                 if(calculo == 0){
-                if(soma == 0){
-                    calculo = 0
+                    if(soma == 0 ){
+                        calculo = 0
+                    }else{
+                        calculo = Number(soma)
+                    }
                 }
-                   else{ calculo = Number(soma)}
-                }else{
+                else{
                     if(soma == 0){
                         calculo = 0
                     }else{
@@ -164,6 +162,7 @@ function  abrirMeiaTela(){
 function limpaResultado(){
     resultado_1.innerHTML = ''
     resultado_amais.innerHTML = ''
+    tela_res.innerHTML = ""
 }
 
 function limpaTela(){
@@ -172,6 +171,16 @@ function limpaTela(){
         visor.innerHTML += `${v1[0]}`
     }
 }
+function limpar(){
+    v1 = []
+    visor.innerHTML = ''
+    resultado.style.display = 'none'
+    resultado.style.left = '100px'
+        digitos.classList.remove('abriu')
+    visor.classList.remove('abriu_visor')
+    limpaResultado()
+    
+} 
 numeros()
 /*
 1-) Corrigir o erro, pra o meu array somente soma uma x o valor
