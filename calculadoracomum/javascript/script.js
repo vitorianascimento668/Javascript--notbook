@@ -8,10 +8,12 @@ let digitos = document.querySelector('.digitos')
 let sinais_ope = document.querySelector('.sinaldaOpe')
 let tela_res = document.querySelector('.res')
 let iguale = document.querySelector('.igual')
+let opeigual = ''
 let dataNum = 0
 let au = 0
 let calculo = 0
 let i = 0
+let submul = 0
 var v2 = ""
 let operac_valor = ""
 let v1 = []
@@ -19,122 +21,130 @@ let v1 = []
 function numeros(){
    num.forEach((numero)=>{
     numero.addEventListener('click',()=>{
-       dataNum = numero.getAttribute('data-num')
-            v2 += dataNum
+       dataNum = numero.getAttribute('data-num') // valor do dataNum do html
+            v2 += dataNum //Aqui o v2 recebe o valor do data-num
            
-        
-        
-        visor.innerHTML += `${dataNum}`
+        visor.innerHTML += `${dataNum}` //aqui vamos mostra na
+        //tela o valor do dataNum
     })
         
    })
+   operac.forEach((evento) =>{
+    evento.addEventListener("click",()=>{
+        operac_valor = evento.getAttribute('data-ope')
+        limpaResultado()
+        if (operac_valor == "="){
+            opeigual = operac_valor}
+        tela_res.innerHTML = calculo
+        if(operac_valor.length > 0){
+            if(v2.length > 0){
+                v1.push(v2)      
+                v2 = "" 
+
+            }
+            
+
+        }
+
+        
+         if(operac_valor != '=' )    {
+            if (operac_valor == "/"){
+                visor.innerHTML += " ÷ "
+            }else{
+                visor.innerHTML += ` ${operac_valor} `}
+            au = operac_valor
+            
+         }
+        for (let i in v1){
+            if(i == 0){
+                resultado_1.innerHTML = ` ${v1[i]} `}
+            else{
+                    resultado_amais.innerHTML +=  `    ${v1[i]} </br>`
+                }
+               
+            
+           }
+         if(opeigual == '='){
+            soma()
+            v1 = []
+            v1.push(calculo)
+            calculo = ''
+            opeigual = ''
+            operac_valor = au
+            limpaTela()
+            
+
+        }
+
+         
+
+
+            if ( operac_valor == "/"){
+                sinais_ope.innerHTML = "÷" 
+            }else{
+                sinais_ope.innerHTML =`${au}`
+               
+
+            }
+            
+            
+            
+            
+
+    })
+
+})
 
       
 }
 
-function opera (){
-
-    operac.forEach((evento) =>{
-        evento.addEventListener("click",()=>{
-            operac_valor = evento.getAttribute('data-ope')
-            limpaResultado()
-
-             
-            tela_res.innerHTML = calculo
-            if(operac_valor.length > 0){
-                if(v2.length > 0){
-                    v1.push(v2)      
-                    v2 = "" 
-
-                }
-                
-
-            }
-
-            
-             if(operac_valor != '=' )    {
-                if (operac_valor == "/"){
-                    visor.innerHTML += " ÷ "
-                }else{
-                    visor.innerHTML += ` ${operac_valor} `}
-                au = operac_valor
-                
-             }
-            for (let i in v1){
-                if(i == 0){
-                    resultado_1.innerHTML = ` ${v1[i]} `}
-                else{
-                        resultado_amais.innerHTML +=  `    ${v1[i]} </br>`
-                    }
-                   
-                
-               }
-             if(operac_valor == '='){
-                soma()
-
-                operac_valor = au
-            }
-
-             
-
-
-                if ( operac_valor == "/"){
-                    sinais_ope.innerHTML = "÷" 
-                }else{
-                    sinais_ope.innerHTML =`${au}`
-                   
-
-                }
-                
-                
-                
-                
-
-        })
-
-    })
-}
-
 function soma(){
-    v1.forEach((soma)=>{
-        if(operac_valor == "-" || au == "-"){
-            if(calculo == 0){
-                calculo = Number(soma)
-            }else{
-                calculo-= Number(soma)}
-        }
-        if(operac_valor == "+" || au == "+"){
-            calculo+=Number(soma)
-        }
-        if(operac_valor == "*" || au == "*"){
-            if(calculo == 0){
-                calculo = Number(soma)
-            }else{
-                calculo*= Number(soma)}
-        }
-        if(operac_valor == "/" || au == "/"){
-            if(calculo == 0){
-                calculo = Number(soma)
-            }else{
-                calculo/= Number(soma)}
-        }
-            //FALTA A OPERAÇÃO DE PORCETAGEM E A OPERAÇÃO DE
-            // DIVISÃO INTEIRA OU RESTO DA DIVISAO 
+    v1.forEach((soma)=>{   
+        igual()
         
-
-    })
-    setTimeout(()=>{
-        if(calculo != 0){
-            v1 = []
-            v1.push(calculo)
+            if(operac_valor == "-" || au == "-"){
+                if(calculo == 0){
+                    calculo = Number(soma)
+                }else{
+                    calculo-= Number(soma)
+                
+                }
+            }
+            if(operac_valor == "+" || au == "+"){
+                if(calculo == 0){
+                    calculo = Number(soma)
+                }else{
+                    calculo+= Number(soma)
+                
+                }
+            }
+            if(operac_valor == "*" || au == "*"){
+                if(calculo == 0){
+                    calculo = Number(soma)
+                }else{
+                    calculo*= Number(soma)}
+            }
+            if(operac_valor == "/" || au == "/"){
+                if(calculo == 0){
+                    calculo = Number(soma)
+                }else{
+                    calculo/= Number(soma)}
+            }
             
-        }
+        })
+           
+                //FALTA A OPERAÇÃO DE PORCETAGEM E A OPERAÇÃO DE
+                // DIVISÃO INTEIRA OU RESTO DA DIVISAO 
+                // COMO SALVA OS VALORES DO CALCULO, SEM ACEITA FAZER
+                //REPETIÇÃO, PODENDO USA O ARRAY? NÃO SEI, E UMA TEORIA
+                //oU ENTAO POSSO TROCA O VALOR DE CALCULO
 
-    },'1000')
-    
+
 }
 
 function igual(){
+    
+    tela_res.innerHTML = v1[0]
     abrirMeiaTela()
 
 }
@@ -152,16 +162,15 @@ function limpaResultado(){
 
 function limpaTela(){
     if(v2.length < 1){
-        v1 = []
         visor.innerHTML = ''
+        visor.innerHTML += `${v1[0]}`
+
     }
 }
-soma()
 numeros()
-opera()
-
 /*
 1-) Corrigir o erro, pra o meu array somente soma uma x o valor
 2-) Corrigir o if de baixo, para não soma mais a mais
 3-) Depois de fazer conserta os item de porcetagem e resto da div
+4-) alterar o - ou + pra fazer alteração somente quando clicado 
 */
