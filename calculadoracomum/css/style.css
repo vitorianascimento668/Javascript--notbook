@@ -34,7 +34,7 @@ h2{
 .visor{
     margin:auto;
     width: 220px;
-    height:40px;
+   min-height:40px;
     border: 1px solid black;
     border-radius: 15px;
     margin-bottom:5px;

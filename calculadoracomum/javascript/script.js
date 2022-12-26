@@ -26,6 +26,8 @@ function numeros(){
            
         visor.innerHTML += `${dataNum}` //aqui vamos mostra na
         //tela o valor do dataNum
+        if (calculo == 0){
+        }
     })
         
    })
@@ -160,8 +162,9 @@ function soma(){
 }
 
 function igual(){
-    tela_res.innerHTML = v1[0]
-    abrirMeiaTela()
+   
+        tela_res.innerHTML = v1[0]
+        abrirMeiaTela()
 
 }
 function  abrirMeiaTela(){
@@ -193,10 +196,24 @@ function limpar(){
     limpaResultado()
     
 } 
+function corrige(){
+     submul= v2.length
+     v2 = v2.slice(0,submul-1)
+     dataNum = v2
+     numeros()
+        
+    
+
+
+
+}
 numeros()
 /*
 1-) Corrigir o erro, pra o meu array somente soma uma x o valor
 2-) Corrigir o if de baixo, para não soma mais a mais
 3-) Depois de fazer conserta os item de porcetagem e resto da div
 4-) alterar o - ou + pra fazer alteração somente quando clicado 
+
+Conserta o erro de aperta igual e fazer os valores sumi e nao aparece
+o sinal de igual
 */
