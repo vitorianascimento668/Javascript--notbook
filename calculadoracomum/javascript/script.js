@@ -38,8 +38,6 @@ function numeros(){
                 v2 = "" 
 
             }
-            
-
         }
 
         
@@ -48,7 +46,8 @@ function numeros(){
                 visor.innerHTML += " ÷ "
             }else{
                 visor.innerHTML += ` ${operac_valor} `}
-            au = operac_valor
+                au = operac_valor
+            
             
          }
     
@@ -192,12 +191,17 @@ function limpar(){
     
 } 
 function corrige(){
-    submul = visor.innerHTML   
+    submul = visor.innerHTML 
+    submul = submul.replace(' ','')  
     visor.innerHTML = submul.slice(0,-1)
-    console.log(submul)
-    numeros()
-        
-    
+        v2 = v2.slice(0,-1)
+        if(v2.length ==  0){
+
+            operac_valor = operac_valor.slice(0,-1)
+        }    
+        if(operac_valor.length == 0){
+           v1.push()
+        }
 
 
 
