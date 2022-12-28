@@ -12,8 +12,7 @@ let opeigual = ''
 let dataNum = 0
 let au = 0
 let calculo = 0
-let i = 0
-let submul = 0
+let submul = []
 var v2 = ""
 let operac_valor = ""
 let v1 = []
@@ -22,12 +21,8 @@ function numeros(){
    num.forEach((numero)=>{
     numero.addEventListener('click',()=>{
        dataNum = numero.getAttribute('data-num') // valor do dataNum do html
-            v2 += dataNum //Aqui o v2 recebe o valor do data-num
-           
-        visor.innerHTML += `${dataNum}` //aqui vamos mostra na
-        //tela o valor do dataNum
-        if (calculo == 0){
-        }
+         v2 += dataNum //Aqui o v2 recebe o valor do data-num
+        visor.innerHTML += dataNum   
     })
         
    })
@@ -197,10 +192,10 @@ function limpar(){
     
 } 
 function corrige(){
-     submul= v2.length
-     v2 = v2.slice(0,submul-1)
-     dataNum = v2
-     numeros()
+    submul = visor.innerHTML   
+    visor.innerHTML = submul.slice(0,-1)
+    console.log(submul)
+    numeros()
         
     
 
