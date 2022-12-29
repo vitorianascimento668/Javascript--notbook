@@ -200,9 +200,13 @@ function corrige(){
             operac_valor = operac_valor.slice(0,-1)
         }    
         if(operac_valor.length == 0){
-           v1.push()
-        }
+            v1 = v1.toString()
+            v1 = v1.slice(0,-1)
 
+        }
+        if(v1.length == 0){
+            v1 = []
+        }
 
 
 }
