@@ -11,7 +11,7 @@ let iguale = document.querySelector('.igual')
 let opeigual = ''
 let dataNum = 0
 let au = 0
-let calculo = 0
+let calculo = ""
 let submul = []
 var v2 = ""
 let operac_valor = ""
@@ -36,7 +36,6 @@ function numeros(){
             if(v2.length > 0){
                 v1.push(v2)      
                 v2 = "" 
-
             }
         }
 
@@ -141,6 +140,7 @@ function soma(){
                     }else{
                     calculo/= Number(soma)}}
             }
+
         tela_res.innerHTML = calculo
 
             
@@ -196,7 +196,6 @@ function corrige(){
     visor.innerHTML = submul.slice(0,-1)
         v2 = v2.slice(0,-1)
         if(v2.length ==  0){
-
             operac_valor = operac_valor.slice(0,-1)
         }    
         if(operac_valor.length == 0){
@@ -204,18 +203,20 @@ function corrige(){
             v1 = v1.slice(0,-1)
 
         }
-        if(v1.length == 0){
+        if(v1.length == 0 && calculo == 0){
             v1 = []
+            limpar()
         }
 
 
 }
 numeros()
 /*
-1-) Corrigir o erro, pra o meu array somente soma uma x o valor
-2-) Corrigir o if de baixo, para não soma mais a mais
-3-) Depois de fazer conserta os item de porcetagem e resto da div
-4-) alterar o - ou + pra fazer alteração somente quando clicado 
+1-) Fazer o v1 vira uma strin e depois vira um array dnv
+2-) Fazer as contas fazer a operacao correta + ou -
+3-) excluir os valores da tela, de resposta ou nao 
+4-) chama a funcao Limpar() quando termina de currigur 
+o ultimo numero do meu visor.
 
 Conserta o erro de aperta igual e fazer os valores sumi e nao aparece
 o sinal de igual
