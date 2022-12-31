@@ -27,13 +27,16 @@ h1{
     border-right: 1px solid rgba(0, 0, 0, 0.315);
 }
 .margin-cima{
-    background-color:rgb(200 200 58);
+    background-color: rgb(200 200 58);
     min-width: 400px;
-    height:40px;
-    display:flex;
+    height: 40px;
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
     box-shadow: 0px 0px 3px 1px #0000003b;
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
 
 }
 .body-meio{
@@ -48,4 +51,35 @@ h1{
     background-color:rgb(250, 250, 32);
     border-bottom: 1px solid rgba(0, 0, 0, 0.315);
 
+}
+.botao_tresPonto{
+    margin-right: 15px;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+.botao_mais{
+    display: flex;
+    flex: 2;
+    margin-left: 10px;
+    font-size:40px;
+}
+.botao_X{
+    margin-right: 10px;
+}
+.botao_X:hover, .botao_mais:hover, .botao_tresPonto:hover{
+    color:#e0d8d89e;
+    cursor: pointer;
+}
+.footer-baixo{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 22px;
+    
+}
+.marcadores{
+    line-height: 9px;
+}
+.marcadores,.b_negrito,.i_italico,.sublinhado,.tachado,.imagem--enviou{
+    cursor: pointer;
 }
