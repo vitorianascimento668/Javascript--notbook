@@ -13,19 +13,28 @@
     <div class="container">
             <div class="margin-cima"> 
                 <div class="botao_mais"> + </div>
-                <div class="botao_tresPonto">...</div>
+                <div class="botao_tresPonto">...
+                </div>
                 <div class="botao_X"> X </div>
             </div> 
+            <div class="cores_fundo">
+                        <div class="amarelo"></div>
+                        <div class="Verde"></div>
+                        <div class="lilais"></div>
+                        <div class="roxo"></div>
+                        <div class="red"></div>
+                        <div class="azul"></div>
+                        <div class="cinza"></div>
+                        <div class="pretoC"></div>
+                    </div>
             <div class="body-meio"><textarea id="texto_caixa" cols="30" rows="10"></textarea></div>
             <div class="footer-baixo">
-                <div class="b_negrito" style="font-weight: bold;"> B</div>
-                <div class="i_italico" ><i>I</i></div>
-                <div class="sublinhado" style="text-decoration: underline;">U</div>
-                <div class="tachado"> A̶B̶  </div>
-                <div class="marcadores">•― <br>•― <br>•―</div>
-                <div class="imagem--enviou">
-                    🖼️
-                </div>
+                <div class="b_negrito" onclick="negrito()" style="font-weight: bold;"> B</div>
+                <div class="i_italico" onclick="italico()" ><i>I</i></div>
+                <div class="sublinhado" onclick="sublinhado()" style="text-decoration: underline;">U</div>
+                <div class="tachado" onclick="tachado()"> A̶B̶  </div>
+                <div class="marcadores" onclick="marcadores()">•― <br>•― <br>•―</div>
+                <div class="imagem--enviou" onclick="imagems()">🖼️ </div>
             </div>
     </div>
 </body>
