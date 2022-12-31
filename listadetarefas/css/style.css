@@ -83,3 +83,6 @@ h1{
 .marcadores,.b_negrito,.i_italico,.sublinhado,.tachado,.imagem--enviou{
     cursor: pointer;
 }
+.marcadores:hover,.b_negrito:hover,.i_italico:hover,.sublinhado:hover,.tachado:hover{
+    color:#e0d8d89e;
+}
