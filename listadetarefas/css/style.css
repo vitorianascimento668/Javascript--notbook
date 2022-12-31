@@ -3,6 +3,10 @@
     margin:0;
     padding:0;
 }
+@font-face {
+    font-family: "Seymour Um";
+    src: url("./SeymourOne-Regular.ttf");
+}
 body{
     font-size: 13px;
     font-family:Arial, Helvetica, sans-serif;
@@ -10,7 +14,10 @@ body{
 
 }
 h1{
-    font-size:25px;
+    font-size: 20px;
+    margin-top: 10px;
+    color: crimson;
+    font-family:'Seymour Um',Arial, Helvetica, sans-serif;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -85,4 +92,10 @@ h1{
 }
 .marcadores:hover,.b_negrito:hover,.i_italico:hover,.sublinhado:hover,.tachado:hover{
     color:#e0d8d89e;
+}
+#texto_caixa{
+    min-width: 400px;
+    height: 300px;
+    background-color:rgb(250, 250, 32) ;
+    font-size:19px;
 }
