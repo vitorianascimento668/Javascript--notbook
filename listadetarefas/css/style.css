@@ -51,6 +51,7 @@ h1{
     height: 300px;
     background-color:rgb(250, 250, 32);
     border-bottom: 1px solid grey;;
+
 }
 .footer-baixo{
     min-width: 400px;
@@ -98,11 +99,10 @@ h1{
     height: 300px;
     background-color:rgb(250, 250, 32) ;
     font-size:19px;
-    padding: 5px;
+    padding: 10px;
     resize: none;
 }
 .cores_fundo{
-    display:flex;
     justify-content: space-around;
     margin-top:-40px;
     height: 50px;
@@ -110,6 +110,8 @@ h1{
     border-top: 1px solid rgba(0, 0, 0, 0.315);
     border-left: 1px solid rgba(0, 0, 0, 0.315);
     border-right: 1px solid rgba(0, 0, 0, 0.315);
+    display:none;
+    transition: 1.5s;
 }
 .amarelo{
     width:49.5px;
