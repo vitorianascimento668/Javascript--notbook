@@ -96,11 +96,11 @@ h1{
 }
 #texto_caixa{
     min-width: 400px;
+    max-width: 402px;
     height: 300px;
     background-color:rgb(250, 250, 32) ;
     font-size:19px;
     padding: 10px;
-    resize: none;
 }
 .cores_fundo{
     justify-content: space-around;
@@ -133,7 +133,7 @@ h1{
         cursor: pointer;
 }
 .red{
-    background-color:rgba(221, 129, 129, 0.541);
+    background-color:red;
     width:50px;
     cursor: pointer;
 }
@@ -152,5 +152,12 @@ h1{
     width:50px;
     background-color:rgb(66 66 66);
     cursor: pointer;
+
+}
+.negrito{
+    font-weight:bold;
+    height: 200px;
+    min-width: 391px;
+    max-width: 401px;
 
 }

@@ -5,6 +5,7 @@ let margin_cima = document.querySelector('.margin-cima')
 let body_meio = document.querySelector(".body-meio")
 let area_body = document.querySelector("#texto_caixa")
 let footer_baixo = document.querySelector(".footer-baixo")
+let valorArea = ''
 function tresPontos (){
     if(trePontosAouF.display == 'flex'){
         trePontos.style.display = "none"
@@ -80,5 +81,26 @@ function  cores(){
     
     
 }
+let negrito_variavel = ''
+function negrito(){
+   negrito_variavel = document.createElement('span')
+   negrito_variavel.classList.add('negrito')
+   negrito_variavel.contentEditable= "true"
+   area_body.appendChild(negrito_variavel)  
 
+
+   
+}
+function italico(){
+    
+}
+function sublinhado(){
+    
+}
+function tachado(){
+    
+}
+function marcadores(){
+    
+}
 cores()
