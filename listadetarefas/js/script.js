@@ -3,9 +3,12 @@ let trePontosAouF = trePontos.style
 let tres_pontos_div = document.querySelector('.botao_tresPonto').style
 let margin_cima = document.querySelector('.margin-cima')
 let body_meio = document.querySelector(".body-meio")
-let area_body = document.querySelector("#texto_caixa")
+let area_body = document.querySelector(".texto_caixa")
 let footer_baixo = document.querySelector(".footer-baixo")
+let normal_variavel = ""
 let valorArea = ''
+let negrito_variavel = ''
+let ope_1 = 1, ope_2 = 0
 function tresPontos (){
     if(trePontosAouF.display == 'flex'){
         trePontos.style.display = "none"
@@ -81,15 +84,25 @@ function  cores(){
     
     
 }
-let negrito_variavel = ''
+
 function negrito(){
-   negrito_variavel = document.createElement('span')
-   negrito_variavel.classList.add('negrito')
-   negrito_variavel.contentEditable= "true"
-   area_body.appendChild(negrito_variavel)  
+    if(ope_1 == 1){
+        negrito_variavel = document.createElement('span')
+        negrito_variavel.classList.add('negrito')
+        area_body.appendChild(negrito_variavel)  
+        ope_1 = 2
+        ope_2 = 0  
+    }
+    else if(ope_2 == 0){
+        normal_variavel = document.createElement('span')
+        normal_variavel.classList.add('texto_caixa')
+        area_body.appendChild(normal_variavel)  
+        negrito_variavel = ''
+        ope_1 = 1
+        ope_2 = 2
+    }
 
 
-   
 }
 function italico(){
     

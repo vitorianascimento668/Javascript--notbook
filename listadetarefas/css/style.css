@@ -94,13 +94,13 @@ h1{
 .marcadores:hover,.b_negrito:hover,.i_italico:hover,.sublinhado:hover,.tachado:hover{
     color:#e0d8d89e;
 }
-#texto_caixa{
-    min-width: 400px;
-    max-width: 402px;
-    height: 300px;
+.texto_caixa{
+    font-weight: normal;
     background-color:rgb(250, 250, 32) ;
     font-size:19px;
     padding: 10px;
+    white-space: normal;
+
 }
 .cores_fundo{
     justify-content: space-around;
@@ -156,8 +156,7 @@ h1{
 }
 .negrito{
     font-weight:bold;
-    height: 200px;
-    min-width: 391px;
-    max-width: 401px;
-
+    font-weight: bold;
+    min-width: 1px;
+    min-height: 1px;
 }
