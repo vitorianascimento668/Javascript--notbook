@@ -87,19 +87,23 @@ function  cores(){
 
 function negrito(){
     if(ope_1 == 1){
-        negrito_variavel = document.createElement('span')
+        negrito_variavel = document.createElement('div')
         negrito_variavel.classList.add('negrito')
+        negrito_variavel.contentEditable= "true"
         area_body.appendChild(negrito_variavel)  
         ope_1 = 2
         ope_2 = 0  
+        normal_variavel = ''
     }
     else if(ope_2 == 0){
-        normal_variavel = document.createElement('span')
+        normal_variavel = document.createElement('div')
         normal_variavel.classList.add('texto_caixa')
-        area_body.appendChild(normal_variavel)  
-        negrito_variavel = ''
+        normal_variavel.classList.add('corserto')
+        normal_variavel.contentEditable= "true"
+        area_body.appendChild(normal_variavel) 
         ope_1 = 1
         ope_2 = 2
+        negrito_variavel = ''
     }
 
 
