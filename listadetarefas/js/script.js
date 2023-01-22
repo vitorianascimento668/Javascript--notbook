@@ -1,5 +1,6 @@
 let trePontos = document.querySelector('.cores_fundo')
 let trePontosAouF = trePontos.style
+let b_negritao =  document.querySelector('.b_negrito')
 let tres_pontos_div = document.querySelector('.botao_tresPonto').style
 let margin_cima = document.querySelector('.margin-cima')
 let body_meio = document.querySelector(".body-meio")
@@ -84,10 +85,11 @@ function  cores(){
     
     
 }
+let testando = 0
 
 function negrito(){
     if(ope_1 == 1){
-        negrito_variavel = document.createElement('div')
+        negrito_variavel = document.createElement('span')
         negrito_variavel.classList.add('negrito')
         normal_variavel.contentEditable= "false"
         negrito_variavel.contentEditable= "true"
@@ -95,7 +97,9 @@ function negrito(){
         ope_1 = 2
         ope_2 = 0  
         normal_variavel = ''
-        document.querySelector('.b_negrito').style.backgroundColor = "red"
+        b_negritao.style.backgroundColor = ("#aeaeae7d") 
+        b_negritao.style.padding="8px" 
+    
     }
     else if(ope_2 == 0){
         normal_variavel = document.createElement('div')
@@ -107,11 +111,13 @@ function negrito(){
         ope_1 = 1
         ope_2 = 2
         negrito_variavel = ''
-        document.querySelector('.b_negrito').style.backgroundColor = "violet"
+        b_negritao.style.backgroundColor = "transparent"
+        b_negritao.style.padding="0px" 
     }
 
 
 }
+
 function italico(){
     
 }
@@ -124,4 +130,20 @@ function tachado(){
 function marcadores(){
     
 }
+function teste(){
+    body_meio.addEventListener("keypress",(e)=>
+    {
+        if(e.keyCode == 13){
+            testando = e.keyCode
+            e.preventDefault()
+            if (testando == 13){
+                area_body.innerHTML+= `</br>`
+                negrito()
+                testando = 0
+               
+            }
+        }
+    })
+}
 cores()
+teste()

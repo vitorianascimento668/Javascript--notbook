@@ -1,4 +1,4 @@
-let visor = document.querySelector(".visor")
+let visor = document.querySelector('.visor')
 let num = document.querySelectorAll('.num')
 let operac = document.querySelectorAll('.operac')
 let resultado_1= document.querySelector('.valor1')
@@ -16,76 +16,93 @@ let submul = []
 var v2 = ""
 let operac_valor = ""
 let v1 = []
+let v3 = []
+let cont_op = 0
 
 function numeros(){
    num.forEach((numero)=>{
     numero.addEventListener('click',()=>{
        dataNum = numero.getAttribute('data-num') // valor do dataNum do html
          v2 += dataNum //Aqui o v2 recebe o valor do data-num
-        visor.innerHTML += dataNum   
-    })
-        
-   })
-   operac.forEach((evento) =>{
-    evento.addEventListener("click",()=>{
-        operac_valor = evento.getAttribute('data-ope')
-        limpaResultado()
-        if (operac_valor == "="){
-            opeigual = operac_valor}
-            if(operac_valor.length > 0){
-            if(v2.length > 0){
-                v1.push(v2)      
-                v2 = "" 
-            }
-        }
+        visor.innerHTML += dataNum // Aparece na tela o valor do Datanum
+    })   })
 
-        
-         if(operac_valor != '=' )    {
-            if (operac_valor == "/"){
-                visor.innerHTML += " ÷ "
-            }else{
-                visor.innerHTML += ` ${operac_valor} `}
-                au = operac_valor
-            
-            
-         }
-    
-        for (let i in v1){
-            if(i == 0){
-                resultado_1.innerHTML = ` ${v1[i]} `}
-            else{
-                    resultado_amais.innerHTML +=  `    ${v1[i]} </br>`
-                }
-            
-           }
-         if(opeigual == '='){
-            soma()
-            v1 = []
-            v1.push(calculo)
-            calculo = ''
-            opeigual = ''
-            operac_valor = au
-            limpaTela()
-        }
-
-         
-
-
-            if ( operac_valor == "/"){
-                sinais_ope.innerHTML = "÷" 
-            }else{
-                sinais_ope.innerHTML =`${au}`
-               
-
-            }
-            
-            
-              
-    })
-
-})
 
       
+}
+function opera(){
+    operac.forEach((evento) =>{
+         
+        evento.addEventListener("click",()=>{
+            operac_valor = evento.getAttribute('data-ope') //pega a operação que foi clicada
+            
+            limpaResultado()
+            
+            if (operac_valor == "="){
+                opeigual = operac_valor
+            }
+    
+                if(operac_valor.length > 0){
+                if(v2.length > 0){
+                    v1.push(v2)    
+                    v2 = "" 
+                }
+            }
+    
+            
+             if(operac_valor != '=' )    {
+                if (operac_valor == "/"){
+                    visor.innerHTML += " ÷ "
+                }else{
+                    visor.innerHTML += ` ${operac_valor} `}
+                    au = operac_valor
+                    cont_op++    
+                    if (cont_op > 1){
+                        soma()
+                        v1 = []
+                        v1.push(calculo)
+                        calculo = ''
+                        opeigual = ''
+                        operac_valor = au
+                            
+                    }
+             }
+        
+            for (let i in v1){
+                if(i == 0){
+                    resultado_1.innerHTML = ` ${v1[i]} `}
+                else{
+                        resultado_amais.innerHTML +=  `    ${v1[i]} </br>`
+                    }
+                
+               }
+             if(opeigual == '='){
+                soma()
+                v1 = []
+                v1.push(calculo)
+                calculo = ''
+                opeigual = ''
+                operac_valor = au
+                limpaTela()
+            }
+    
+             
+    
+    
+                if ( operac_valor == "/"){
+                    sinais_ope.innerHTML = "÷" 
+                }else{
+                    sinais_ope.innerHTML =`${au}`
+                   
+    
+                }
+                
+                
+                  
+        })
+        
+    
+    })
 }
 
 function soma(){
@@ -211,12 +228,18 @@ function corrige(){
 
 }
 numeros()
+opera()
+
 /*
 1-) Fazer o v1 vira uma strin e depois vira um array dnv
 2-) Fazer as contas fazer a operacao correta + ou -
 3-) excluir os valores da tela, de resposta ou nao 
 4-) chama a funcao Limpar() quando termina de currigur 
 o ultimo numero do meu visor.
+
+--- tenho que criar uma variavel que segure o valor da 
+operac ate que o usuario digite algum numero para soma ou multimplica
+e depois não aumente o valor automatico. 
 
 Conserta o erro de aperta igual e fazer os valores sumi e nao aparece
 o sinal de igual
