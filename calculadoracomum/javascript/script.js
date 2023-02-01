@@ -16,7 +16,7 @@ let submul = []
 var v2 = ""
 let operac_valor = ""
 let v1 = []
-let v3 = []
+let v3 = ''
 let cont_op = 0
 
 function numeros(){
@@ -25,19 +25,44 @@ function numeros(){
        dataNum = numero.getAttribute('data-num') // valor do dataNum do html
          v2 += dataNum //Aqui o v2 recebe o valor do data-num
         visor.innerHTML += dataNum // Aparece na tela o valor do Datanum
-    })   })
+        
+        if(v1.length > 0){//novo valor sendo chamado
+            if(v1.length > 0 && v2.length > 0){
+                soma()
+            }
+            
+        }    
+        if(v2.length >= 2 || v1.length >= 1){
+            calculo = 0
+            v1.pop()
+            resultado_amais.innerHTML = v2
+            abrirMeiaTela()
+            opera()   
+        }
+    })  
+        
+   
+})
 
-
+    
       
 }
+let test = ""
+let testando123 = []
+let contei = 0
+
 function opera(){
     operac.forEach((evento) =>{
          
         evento.addEventListener("click",()=>{
-            operac_valor = evento.getAttribute('data-ope') //pega a operação que foi clicada
-            
+        operac_valor = evento.getAttribute('data-ope') //pega a operação que foi clicada
+       
+       //Coloquei o valor de mudança aqui, a unica coisa que falta
+       // é fazer o proximo valor aparecer automaticamente.
+        // final da tentativa.
+
             limpaResultado()
-            
+
             if (operac_valor == "="){
                 opeigual = operac_valor
             }
@@ -46,7 +71,8 @@ function opera(){
                 if(v2.length > 0){
                     v1.push(v2)    
                     v2 = "" 
-                }
+                } 
+                
             }
     
             
@@ -58,24 +84,24 @@ function opera(){
                     au = operac_valor
                     cont_op++    
                     if (cont_op > 1){
-                        soma()
-                        v1 = []
-                        v1.push(calculo)
-                        calculo = ''
-                        opeigual = ''
-                        operac_valor = au
-                            
+                            v3 = au
+                            res_preen_tela()
+                        setTimeout(()=>
+                        {   soma()
+                            v1 = []
+                            v1.push(calculo)
+                            calculo = ''
+                            opeigual = ''
+                            operac_valor = au
+                             limpaTela()
+                             visor.innerHTML +=` ${au} `},'100')
+                                                
+                                    
+                                
+                        
                     }
              }
-        
-            for (let i in v1){
-                if(i == 0){
-                    resultado_1.innerHTML = ` ${v1[i]} `}
-                else{
-                        resultado_amais.innerHTML +=  `    ${v1[i]} </br>`
-                    }
-                
-               }
+             res_preen_tela()
              if(opeigual == '='){
                 soma()
                 v1 = []
@@ -98,7 +124,6 @@ function opera(){
                 }
                 
                 
-                  
         })
         
     
@@ -106,11 +131,14 @@ function opera(){
 }
 
 function soma(){
+    v1.push(v2) // Fazendo o calculo -- só falta arruma a conta
     v1.forEach((soma)=>{   
+
         igual()
+            
             if(operac_valor == "-" || au == "-"){
                 if(calculo == 0){
-                    calculo = Number(soma)
+                    calculo = Number(soma) 
                 }else{
                     calculo-= Number(soma)
                 
@@ -123,7 +151,7 @@ function soma(){
                     calculo+= Number(soma)
                 
                 }
-            }
+            } 
             if(operac_valor == "*" || au == "*"){
                 if(calculo == 0){
                     calculo = Number(soma)
@@ -159,10 +187,9 @@ function soma(){
             }
 
         tela_res.innerHTML = calculo
-
             
         })
-           
+        
                 //FALTA A OPERAÇÃO DE PORCETAGEM E A OPERAÇÃO DE
                 // DIVISÃO INTEIRA OU RESTO DA DIVISAO 
                 // COMO SALVA OS VALORES DO CALCULO, SEM ACEITA FAZER
@@ -170,6 +197,17 @@ function soma(){
                 //oU ENTAO POSSO TROCA O VALOR DE CALCULO
 
 
+}
+function res_preen_tela(){
+    resultado_amais.innerHTML = ''
+    for (let i in v1){
+        if(i == 0){
+            resultado_1.innerHTML = ` ${v1[i]} `}
+        else{
+                resultado_amais.innerHTML +=  `${v1[i]} </br>`
+            }
+        
+       }
 }
 
 function igual(){
@@ -200,6 +238,7 @@ function limpaTela(){
 function limpar(){
     v1 = []
     visor.innerHTML = ''
+    cont_op = 0
     resultado.style.display = 'none'
     resultado.style.left = '100px'
         digitos.classList.remove('abriu')
@@ -231,11 +270,11 @@ numeros()
 opera()
 
 /*
-1-) Fazer o v1 vira uma strin e depois vira um array dnv
-2-) Fazer as contas fazer a operacao correta + ou -
-3-) excluir os valores da tela, de resposta ou nao 
-4-) chama a funcao Limpar() quando termina de currigur 
-o ultimo numero do meu visor.
+1-) Fazer as contas fazer a operacao correta + ou -
+2-) excluir os valores da tela, de resposta ou nao 
+
+--- COMO FAZER PARA O VALOR DA 1 OPERAÇÃO NÃO SUMA
+E DEPOIS FAZER O 2 VALOR FAÇA A OPERAÇÃO CPRRETA
 
 --- tenho que criar uma variavel que segure o valor da 
 operac ate que o usuario digite algum numero para soma ou multimplica
