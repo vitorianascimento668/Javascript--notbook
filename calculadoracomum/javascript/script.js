@@ -10,6 +10,7 @@ let tela_res = document.querySelector('.res')
 let iguale = document.querySelector('.igual')
 let opeigual = ''
 let dataNum = 0
+let contador_soma = 0 
 let au = 0
 let calculo = ""
 let submul = []
@@ -25,49 +26,48 @@ function numeros(){
        dataNum = numero.getAttribute('data-num') // valor do dataNum do html
          v2 += dataNum //Aqui o v2 recebe o valor do data-num
         visor.innerHTML += dataNum // Aparece na tela o valor do Datanum
-        
         if(v1.length > 0){//novo valor sendo chamado
             if(v1.length > 0 && v2.length > 0){
                 soma()
             }
             
         }    
-        if(v2.length >= 2 || v1.length >= 1){
-            calculo = 0
-            v1.pop()
+        if(v2.length >= 2 || v1.length >= 1){            
+            if(v2.length >= 1 && v1.length >= 1){
+                calculo = 0
+                v1.pop()
+        }
+
             resultado_amais.innerHTML = v2
             abrirMeiaTela()
-            opera()   
         }
+
+        
     })  
         
    
-})
-
-    
-      
+})     
 }
-let test = ""
-let testando123 = []
-let contei = 0
+
 
 function opera(){
     operac.forEach((evento) =>{
          
         evento.addEventListener("click",()=>{
         operac_valor = evento.getAttribute('data-ope') //pega a operação que foi clicada
-       
-       //Coloquei o valor de mudança aqui, a unica coisa que falta
-       // é fazer o proximo valor aparecer automaticamente.
-        // final da tentativa.
+            
 
             limpaResultado()
-
+             
+            
             if (operac_valor == "="){
                 opeigual = operac_valor
+                
             }
     
                 if(operac_valor.length > 0){
+                    contador_soma ++
+                    
                 if(v2.length > 0){
                     v1.push(v2)    
                     v2 = "" 
@@ -76,41 +76,53 @@ function opera(){
             }
     
             
-             if(operac_valor != '=' )    {
+             if(operac_valor != "=" )    {
                 if (operac_valor == "/"){
                     visor.innerHTML += " ÷ "
                 }else{
-                    visor.innerHTML += ` ${operac_valor} `}
+                    visor.innerHTML += ` ${operac_valor} `
+                }
                     au = operac_valor
                     cont_op++    
-                    if (cont_op > 1){
-                            v3 = au
-                            res_preen_tela()
-                        setTimeout(()=>
-                        {   soma()
-                            v1 = []
-                            v1.push(calculo)
-                            calculo = ''
-                            opeigual = ''
-                            operac_valor = au
-                             limpaTela()
-                             visor.innerHTML +=` ${au} `},'100')
-                                                
-                                    
-                                
-                        
-                    }
+                if (cont_op > 1){
+                    
+                       soma()
+                        v1 = []
+                        v1.push(calculo)
+                        calculo = 0
+                        opeigual = ''
+                        operac_valor = au
+                        visor.innerHTML +=` ${au} `
+                        limpaTela()
+                          
+
+                }
              }
              res_preen_tela()
              if(opeigual == '='){
                 soma()
                 v1 = []
                 v1.push(calculo)
-                calculo = ''
+                calculo = 0
                 opeigual = ''
                 operac_valor = au
                 limpaTela()
+                
             }
+             
+                setTimeout(()=>{
+                    res_preen_tela() 
+                    soma()
+                    v1 = []
+                    v1.push(v3)
+                    calculo = 0
+                    opeigual = ''
+                    operac_valor = au
+                    resultado_1.innerHTML = v1[0]
+                    resultado_amais.innerHTML = v2
+
+                },'100')
+            
     
              
     
@@ -123,9 +135,10 @@ function opera(){
     
                 }
                 
-                
+    
         })
-        
+       
+
     
     })
 }
@@ -135,7 +148,7 @@ function soma(){
     v1.forEach((soma)=>{   
 
         igual()
-            
+
             if(operac_valor == "-" || au == "-"){
                 if(calculo == 0){
                     calculo = Number(soma) 
@@ -156,7 +169,9 @@ function soma(){
                 if(calculo == 0){
                     calculo = Number(soma)
                 }else{
-                    calculo*= Number(soma)}
+                    calculo*= Number(soma)
+                   
+                }
             }
             if(operac_valor == "%%" || au == "%%"){
                 if(calculo == 0){
@@ -183,20 +198,16 @@ function soma(){
                     if(soma == 0){
                         calculo = 0
                     }else{
-                    calculo/= Number(soma)}}
-            }
+                    calculo/= Number(soma)}
+                    }
+        }
 
         tela_res.innerHTML = calculo
-            
+        if (calculo != 0){
+            v3 = calculo
+
+         } 
         })
-        
-                //FALTA A OPERAÇÃO DE PORCETAGEM E A OPERAÇÃO DE
-                // DIVISÃO INTEIRA OU RESTO DA DIVISAO 
-                // COMO SALVA OS VALORES DO CALCULO, SEM ACEITA FAZER
-                //REPETIÇÃO, PODENDO USA O ARRAY? NÃO SEI, E UMA TEORIA
-                //oU ENTAO POSSO TROCA O VALOR DE CALCULO
-
-
 }
 function res_preen_tela(){
     resultado_amais.innerHTML = ''
@@ -211,7 +222,6 @@ function res_preen_tela(){
 }
 
 function igual(){
-   
         tela_res.innerHTML = v1[0]
         abrirMeiaTela()
 
@@ -232,7 +242,7 @@ function limpaResultado(){
 function limpaTela(){
     if(v2.length < 1){
         visor.innerHTML = ''
-        visor.innerHTML += `${v1[0]}`
+        visor.innerHTML += `${v1[0]} ${operac_valor}`
     }
 }
 function limpar(){
