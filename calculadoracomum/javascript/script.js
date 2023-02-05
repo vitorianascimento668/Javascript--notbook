@@ -118,8 +118,9 @@ function opera(){
                     calculo = 0
                     opeigual = ''
                     operac_valor = au
-                    resultado_1.innerHTML = v1[0]
+                    resultado_1.innerHTML = v1[0] 
                     resultado_amais.innerHTML = v2
+                    tela_res.innerHTML = v3
                     limpaTela()
 
                 },'100')
@@ -149,9 +150,9 @@ function opera(){
 }
   
 function soma(){
-    v1.push(v2) // Fazendo o calculo -- só falta arruma a conta
+    // Fazendo o calculo -- só falta arruma a conta
     v1.forEach((soma)=>{   
-
+        v1.push(v2)
         igual()
 
             if(operac_valor == "-" || au == "-"){
@@ -208,10 +209,12 @@ function soma(){
         }
 
         tela_res.innerHTML = calculo
-        if (calculo != 0){
+        if (calculo != 0   ){
             v3 = calculo
+         } else{
+            v3 = 0
+         }
 
-         } 
         })
 }
 function res_preen_tela(){
