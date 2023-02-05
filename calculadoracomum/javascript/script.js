@@ -62,7 +62,7 @@ function opera(){
             
             if (operac_valor == "="){
                 opeigual = operac_valor
-                
+                limpaTela()
             }
     
                 if(operac_valor.length > 0){
@@ -106,7 +106,7 @@ function opera(){
                 calculo = 0
                 opeigual = ''
                 operac_valor = au
-                limpaTela()
+
                 
             }
              
@@ -120,6 +120,7 @@ function opera(){
                     operac_valor = au
                     resultado_1.innerHTML = v1[0]
                     resultado_amais.innerHTML = v2
+                    limpaTela()
 
                 },'100')
             
@@ -129,12 +130,16 @@ function opera(){
     
                 if ( operac_valor == "/"){
                     sinais_ope.innerHTML = "÷" 
+                     
                 }else{
                     sinais_ope.innerHTML =`${au}`
                    
     
                 }
-                
+            
+
+               
+             
     
         })
        
@@ -142,7 +147,7 @@ function opera(){
     
     })
 }
-
+  
 function soma(){
     v1.push(v2) // Fazendo o calculo -- só falta arruma a conta
     v1.forEach((soma)=>{   
@@ -242,7 +247,7 @@ function limpaResultado(){
 function limpaTela(){
     if(v2.length < 1){
         visor.innerHTML = ''
-        visor.innerHTML += `${v1[0]} ${operac_valor}`
+        visor.innerHTML += `${v1[0]} ${operac_valor} `
     }
 }
 function limpar(){
