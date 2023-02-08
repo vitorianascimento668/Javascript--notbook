@@ -8,16 +8,18 @@ let digitos = document.querySelector('.digitos')
 let sinais_ope = document.querySelector('.sinaldaOpe')
 let tela_res = document.querySelector('.res')
 let iguale = document.querySelector('.igual')
-let opeigual = ''
+let opeigual = '',valor_diferente 
 let dataNum = 0
 let contador_soma = 0 
 let au = 0
-let calculo = ""
+let calculo = "" , v_antigo
 let submul = []
 var v2 = ""
 let operac_valor = ""
 let v1 = []
 let v3 = ''
+let v4 = 0
+let c = 1
 let cont_op = 0
 
 function numeros(){
@@ -55,10 +57,26 @@ function opera(){
          
         evento.addEventListener("click",()=>{
         operac_valor = evento.getAttribute('data-ope') //pega a operação que foi clicada
-            
-
-            limpaResultado()
-             
+                 limpaResultado()
+            if(c == 1){
+                valor_diferente = operac_valor
+                c++
+            }
+            if (valor_diferente != operac_valor){
+                if (operac_valor != valor_diferente ){ soma()
+                    v_antigo = operac_valor
+                    operac_valor = valor_diferente
+                    v2 = ''
+                    calculo = ''
+                    opeigual = ''
+                    c = 1
+    
+                    
+                }
+            }
+            if(operac_valor == "%%" ){
+                v1.push(v2)
+            }
             
             if (operac_valor == "="){
                 opeigual = operac_valor
@@ -107,6 +125,7 @@ function opera(){
                 opeigual = ''
                 operac_valor = au
 
+
                 
             }
              
@@ -121,6 +140,7 @@ function opera(){
                     resultado_1.innerHTML = v1[0] 
                     resultado_amais.innerHTML = v2
                     tela_res.innerHTML = v3
+                   
                     limpaTela()
 
                 },'100')
@@ -137,8 +157,10 @@ function opera(){
                    
     
                 }
-            
 
+               
+                    
+             
                
              
     
@@ -150,9 +172,8 @@ function opera(){
 }
   
 function soma(){
-    // Fazendo o calculo -- só falta arruma a conta
+     v1.push(v2)// Fazendo o calculo -- só falta arruma a conta
     v1.forEach((soma)=>{   
-        v1.push(v2)
         igual()
 
             if(operac_valor == "-" || au == "-"){
@@ -181,9 +202,11 @@ function soma(){
             }
             if(operac_valor == "%%" || au == "%%"){
                 if(calculo == 0){
-                    calculo = Number(soma)
+                    calculo += soma
+
                 }else{
-                    calculo%= Number(soma)}
+                    calculo%= Number(soma)
+               }
             }
             if(operac_valor == "%" || au == "%"){
                 if(calculo == 0){
@@ -207,13 +230,18 @@ function soma(){
                     calculo/= Number(soma)}
                     }
         }
-
         tela_res.innerHTML = calculo
         if (calculo != 0   ){
             v3 = calculo
-         } else{
-            v3 = 0
          }
+      /*  if (v3 >= 0 && operac_valor == "%%" ){
+                v4 = v3
+                if(v4 >0){
+                    v1.pop()
+                    v1.push(v4)
+                }
+         }*/
+         
 
         })
 }
