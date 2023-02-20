@@ -12,15 +12,14 @@ let opeigual = '',valor_diferente
 let dataNum = 0
 let contador_soma = 0 
 let au = 0
-let calculo = "" , v_antigo
+let calculo = 0 , v_antigo
 let submul = []
 var v2 = ""
 let operac_valor = ""
 let v1 = []
 let v3 = ''
-let v4 = 0
 let c = 1
-let cont_op = 0
+let cont_op = 0, auxiliando = 1
 
 function numeros(){
    num.forEach((numero)=>{
@@ -84,9 +83,7 @@ function opera(){
                     } }
                
             }
-            if(operac_valor == "%%" ){
-                v1.push(v2)
-            }
+
             
             if (operac_valor == "="){
                 opeigual = operac_valor
@@ -117,7 +114,7 @@ function opera(){
                        soma()
                         v1 = []
                         v1.push(calculo)
-                        calculo = 0
+                        calculo = ''
                         opeigual = ''
                         operac_valor = au
                         visor.innerHTML +=` ${au} `
@@ -131,7 +128,7 @@ function opera(){
                 soma()
                 v1 = []
                 v1.push(calculo)
-                calculo = 0
+                calculo = ''
                 opeigual = ''
                 operac_valor = au
 
@@ -144,13 +141,12 @@ function opera(){
                     soma()
                     v1 = []
                     v1.push(v3)
-                    calculo = 0
+                    calculo = ''
                     opeigual = ''
                     operac_valor = au
                     resultado_1.innerHTML = v1[0] 
                     resultado_amais.innerHTML = v2
                     tela_res.innerHTML = v3
-                   
                     limpaTela()
 
                 },'100')   
@@ -170,13 +166,12 @@ function soma(){
      v1.push(v2)// Fazendo o calculo -- só falta arruma a conta
     v1.forEach((soma)=>{   
         igual()
-
+           
             if(operac_valor == "-" || au == "-"){
                 if(calculo == 0){
                     calculo = Number(soma) 
                 }else{
                     calculo-= Number(soma)
-                
                 }
             }
             if(operac_valor == "+" || au == "+"){
@@ -184,7 +179,6 @@ function soma(){
                     calculo = Number(soma)
                 }else{
                     calculo+= Number(soma)
-                
                 }
             } 
             if(operac_valor == "*" || au == "*"){
@@ -192,16 +186,24 @@ function soma(){
                     calculo = Number(soma)
                 }else{
                     calculo*= Number(soma)
-                   
                 }
             }
             if(operac_valor == "%%" || au == "%%"){
                 if(calculo == 0){
-                    calculo += soma
+                    if(soma == 0 ){
+                        calculo = 0
+                    }else{
+                        calculo = Number(soma)
+                    }
+                }
+                else{
+                    if(soma == 0){
+                        calculo = 0
+                    }else{
+                    calculo%= Number(soma)}
+                    }
 
-                }else{
-                    calculo%= Number(soma)
-               }
+               
             }
             if(operac_valor == "%" || au == "%"){
                 if(calculo == 0){
@@ -226,11 +228,11 @@ function soma(){
                     }
         }
         tela_res.innerHTML = calculo
-        if (calculo != 0   ){
+        if (calculo != 0){
             v3 = calculo
+            
          }
          
-
         })
 }
 function res_preen_tela(){
@@ -241,28 +243,23 @@ function res_preen_tela(){
         else{
                 resultado_amais.innerHTML +=  `${v1[i]} </br>`
             }
-        
        }
 }
-
 function igual(){
         tela_res.innerHTML = v1[0]
         abrirMeiaTela()
-
 }
 function  abrirMeiaTela(){
     digitos.classList.add('abriu')
     visor.classList.add('abriu_visor')
     resultado.style.display = 'flex'
     resultado.style.left = '0px'
-
 }
 function limpaResultado(){
     resultado_1.innerHTML = ''
     resultado_amais.innerHTML = ''
     tela_res.innerHTML = ""
 }
-
 function limpaTela(){
     if(v2.length < 1){
         visor.innerHTML = ''
@@ -277,8 +274,7 @@ function limpar(){
     resultado.style.left = '100px'
         digitos.classList.remove('abriu')
     visor.classList.remove('abriu_visor')
-    limpaResultado()
-    
+    limpaResultado() 
 } 
 function corrige(){
     submul = visor.innerHTML 
@@ -291,18 +287,13 @@ function corrige(){
             if(operac_valor.length == 0){
                 v1 = v1.toString()
                 v1 = v1.slice(0,-1)
-    
                  if(v1.length == 0 && calculo == 0){
-            v1 = []
-            limpar()
+                    v1 = []
+                    limpar()
         }
             }
             
         }    
-        
-       
-
-
 }
 numeros()
 opera()
