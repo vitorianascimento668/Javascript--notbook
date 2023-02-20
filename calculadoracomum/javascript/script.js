@@ -29,50 +29,60 @@ function numeros(){
          v2 += dataNum //Aqui o v2 recebe o valor do data-num
         visor.innerHTML += dataNum // Aparece na tela o valor do Datanum
         if(v1.length > 0){//novo valor sendo chamado
-            if(v1.length > 0 && v2.length > 0){
-                soma()
+            if(v1.length > 0 && v2.length > 0){ // Se o array e o v2 tive algum valor dentro  dele 
+                soma() // chama a função soma()
             }
-            
         }    
-        if(v2.length >= 2 || v1.length >= 1){            
-            if(v2.length >= 1 && v1.length >= 1){
-                calculo = 0
-                v1.pop()
+        if(v2.length >= 2 || v1.length >= 1){// aqui vamos fazer as contas funcionarem            
+            if(v2.length >= 1 && v1.length >= 1){// Aqui vamos chama o v1.pop e limpa
+                calculo = 0 // limpa  o calculo e colocar o 
+                v1.pop()    // pop() em baixo, fazendo limpeza
         }
-
-            resultado_amais.innerHTML = v2
-            abrirMeiaTela()
+            resultado_amais.innerHTML = v2 // Aparece o v2 quando clicado
+            abrirMeiaTela() //Vamos abrir a meia tela
         }
-
-        
-    })  
-        
-   
+    }) 
 })     
 }
 
 
 function opera(){
     operac.forEach((evento) =>{
-         
         evento.addEventListener("click",()=>{
         operac_valor = evento.getAttribute('data-ope') //pega a operação que foi clicada
-                 limpaResultado()
-            if(c == 1){
-                valor_diferente = operac_valor
-                c++
+                 limpaResultado() 
+            if(c == 1){ // Se o c(vale 1) começa com 1
+                valor_diferente = operac_valor //V Original
+                c++ // c + 1, passando vale 2
             }
-            if (valor_diferente != operac_valor){
-                if (operac_valor != valor_diferente ){ soma()
-                    v_antigo = operac_valor
-                    operac_valor = valor_diferente
-                    v2 = ''
-                    calculo = ''
-                    opeigual = ''
-                    c = 1
-    
-                    
-                }
+            if (valor_diferente != operac_valor){ //Se v DIFERENTE for diferente de operac
+                if (operac_valor != valor_diferente ){ 
+                    if (operac_valor != "="){
+                        soma()
+                        v_antigo = operac_valor
+                        operac_valor = valor_diferente
+                        v2 = ''
+                        calculo = ''
+                        opeigual = ''
+                        c = 1
+                        valor_diferente = v_antigo
+                    setInterval(()=>{
+                        operac_valor = valor_diferente
+                        au = operac_valor
+                        limpaTela()
+                        c = 0
+                        if ( operac_valor == "/"){
+                            sinais_ope.innerHTML = "÷" 
+                            
+                        }else{
+                            if (operac_valor != "="){
+                                sinais_ope.innerHTML =`${au}`
+                            }
+                        
+                        }
+                    },'100')
+                    } }
+               
             }
             if(operac_valor == "%%" ){
                 v1.push(v2)
@@ -112,7 +122,7 @@ function opera(){
                         operac_valor = au
                         visor.innerHTML +=` ${au} `
                         limpaTela()
-                          
+                       
 
                 }
              }
@@ -143,11 +153,7 @@ function opera(){
                    
                     limpaTela()
 
-                },'100')
-            
-    
-             
-    
+                },'100')   
     
                 if ( operac_valor == "/"){
                     sinais_ope.innerHTML = "÷" 
@@ -155,19 +161,8 @@ function opera(){
                 }else{
                     sinais_ope.innerHTML =`${au}`
                    
-    
                 }
-
-               
-                    
-             
-               
-             
-    
         })
-       
-
-    
     })
 }
   
@@ -234,13 +229,6 @@ function soma(){
         if (calculo != 0   ){
             v3 = calculo
          }
-      /*  if (v3 >= 0 && operac_valor == "%%" ){
-                v4 = v3
-                if(v4 >0){
-                    v1.pop()
-                    v1.push(v4)
-                }
-         }*/
          
 
         })
@@ -298,17 +286,21 @@ function corrige(){
     visor.innerHTML = submul.slice(0,-1)
         v2 = v2.slice(0,-1)
         if(v2.length ==  0){
+            calculo = v1[0]
             operac_valor = operac_valor.slice(0,-1)
-        }    
-        if(operac_valor.length == 0){
-            v1 = v1.toString()
-            v1 = v1.slice(0,-1)
-
-        }
-        if(v1.length == 0 && calculo == 0){
+            if(operac_valor.length == 0){
+                v1 = v1.toString()
+                v1 = v1.slice(0,-1)
+    
+                 if(v1.length == 0 && calculo == 0){
             v1 = []
             limpar()
         }
+            }
+            
+        }    
+        
+       
 
 
 }
