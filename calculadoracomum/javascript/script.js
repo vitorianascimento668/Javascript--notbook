@@ -46,31 +46,33 @@ function numeros(){
 
 
 function opera(){
+  
     operac.forEach((evento) =>{
         evento.addEventListener("click",()=>{
-        operac_valor = evento.getAttribute('data-ope') //pega a operação que foi clicada
-                 limpaResultado() 
-            if(c == 1){ // Se o c(vale 1) começa com 1
-                valor_diferente = operac_valor //V Original
-                c++ // c + 1, passando vale 2
-            }
-            if (valor_diferente != operac_valor){ //Se v DIFERENTE for diferente de operac
-                if (operac_valor != valor_diferente ){ 
-                    if (operac_valor != "="){
-                        soma()
-                        v_antigo = operac_valor
-                        operac_valor = valor_diferente
-                        v2 = ''
-                        calculo = ''
-                        opeigual = ''
-                        c = 1
-                        valor_diferente = v_antigo
-                    setInterval(()=>{
-                        operac_valor = valor_diferente
-                        au = operac_valor
-                        limpaTela()
-                        c = 0
-                        if ( operac_valor == "/"){
+            if (v2.length > 0 ){
+                    operac_valor = evento.getAttribute('data-ope') //pega a operação que foi clicada
+                    limpaResultado() 
+                        if(c == 1){ // Se o c(vale 1) começa com 1
+                            valor_diferente = operac_valor //V Original
+                            c++ // c + 1, passando vale 2
+                        }
+                        if (valor_diferente != operac_valor){ //Se v DIFERENTE for diferente de operac
+                            if (operac_valor != valor_diferente ){ 
+                                if (operac_valor != "="){
+                                    soma()
+                                    v_antigo = operac_valor
+                                    operac_valor = valor_diferente
+                                    v2 = ''
+                                    calculo = ''
+                                    opeigual = ''
+                                    c = 1
+                                    valor_diferente = v_antigo
+                                setInterval(()=>{
+                                    operac_valor = valor_diferente
+                                    au = operac_valor
+                                    limpaTela()
+                                    c = 0
+                                    if ( operac_valor == "/"){
                             sinais_ope.innerHTML = "÷" 
                             
                         }else{
@@ -157,9 +159,10 @@ function opera(){
                 }else{
                     sinais_ope.innerHTML =`${au}`
                    
-                }
-        })
+                } }
+        }) 
     })
+  
 }
   
 function soma(){
@@ -232,7 +235,10 @@ function soma(){
             v3 = calculo
             
          }
-         
+         if (calculo == 0){
+            v1.pop()
+            v1.push(0)
+         }
         })
 }
 function res_preen_tela(){
@@ -259,6 +265,7 @@ function limpaResultado(){
     resultado_1.innerHTML = ''
     resultado_amais.innerHTML = ''
     tela_res.innerHTML = ""
+    visor.innerHTML += ""
 }
 function limpaTela(){
     if(v2.length < 1){
@@ -268,6 +275,9 @@ function limpaTela(){
 }
 function limpar(){
     v1 = []
+    v2 = ''
+    calculo = ''
+    v3 = ''
     visor.innerHTML = ''
     cont_op = 0
     resultado.style.display = 'none'
