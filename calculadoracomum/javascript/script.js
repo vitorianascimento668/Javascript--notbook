@@ -49,7 +49,7 @@ function opera(){
   
     operac.forEach((evento) =>{
         evento.addEventListener("click",()=>{
-            if (v2.length > 0 ){
+            if ((v2.length > 0) || (v1.length > 0) ){
                     operac_valor = evento.getAttribute('data-ope') //pega a operação que foi clicada
                     limpaResultado() 
                         if(c == 1){ // Se o c(vale 1) começa com 1
@@ -265,7 +265,7 @@ function limpaResultado(){
     resultado_1.innerHTML = ''
     resultado_amais.innerHTML = ''
     tela_res.innerHTML = ""
-    visor.innerHTML += ""
+    visor.innerHTML = ""
 }
 function limpaTela(){
     if(v2.length < 1){
@@ -282,7 +282,7 @@ function limpar(){
     cont_op = 0
     resultado.style.display = 'none'
     resultado.style.left = '100px'
-        digitos.classList.remove('abriu')
+    digitos.classList.remove('abriu')
     visor.classList.remove('abriu_visor')
     limpaResultado() 
 } 
