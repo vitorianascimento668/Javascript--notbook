@@ -266,11 +266,15 @@ function limpaResultado(){
     resultado_amais.innerHTML = ''
     tela_res.innerHTML = ""
     visor.innerHTML = ""
+    
 }
 function limpaTela(){
     if(v2.length < 1){
         visor.innerHTML = ''
         visor.innerHTML += `${v1[0]} ${operac_valor} `
+        if(v1.length == 0 && isNaN(visor.innerHTML)){
+            visor.innerHTML = ''
+        }
     }
 }
 function limpar(){
@@ -278,13 +282,13 @@ function limpar(){
     v2 = ''
     calculo = ''
     v3 = ''
-    visor.innerHTML = ''
     cont_op = 0
     resultado.style.display = 'none'
     resultado.style.left = '100px'
     digitos.classList.remove('abriu')
     visor.classList.remove('abriu_visor')
     limpaResultado() 
+    visor.innerHTML = ''
 } 
 function corrige(){
     submul = visor.innerHTML 
