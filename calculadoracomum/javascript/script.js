@@ -40,6 +40,16 @@ function numeros(){
             resultado_amais.innerHTML = v2 // Aparece o v2 quando clicado
             abrirMeiaTela() //Vamos abrir a meia tela
         }
+        if (tela_res.innerHTML == "0" && v1.length > 0){
+            v1 = []
+            v2 = 0
+           calculo = 0, v3 = 0
+            visor.innerHTML = tela_res.innerHTML
+        if (tela_res.innerHTML == "0" && v1.length > 0){
+            visor.innerHTML = ''
+        }
+        }
+     
     }) 
 })     
 }
@@ -169,7 +179,7 @@ function soma(){
      v1.push(v2)// Fazendo o calculo -- só falta arruma a conta
     v1.forEach((soma)=>{   
         igual()
-           
+        
             if(operac_valor == "-" || au == "-"){
                 if(calculo == 0){
                     calculo = Number(soma) 
@@ -239,6 +249,7 @@ function soma(){
             v1.pop()
             v1.push(0)
          }
+        
         })
 }
 function res_preen_tela(){
