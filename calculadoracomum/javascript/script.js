@@ -334,6 +334,8 @@ function corrige(){
                 v1 = v1.slice(0,-1)
                  if(v1.length == 0 && calculo == 0){
                     v1 = []
+                    calculo = ""
+                    v3 = ""
                     limpar()
         }
             }
@@ -341,12 +343,22 @@ function corrige(){
         }    
         if (v1.length == 0 && v2.length > 0 ){
             limpar()
+            v2 = 0
+            
+        }
+        if (v2.length == 0 ){
+            limpar()
             v2 = ""
+            v1= []
+            v3 = ""
+            operac_valor = ""
+
             
 
             
             
         }
+        
 }
 numeros()
 opera()
