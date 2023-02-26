@@ -316,7 +316,7 @@ function corrige(){
     visor.innerHTML = submul.slice(0,-1)
         v2 = v2.slice(0,-1)
        
-        if (v2.length > 0){
+        if (v2.length > 0 && v1.length > 0){
             resultado_amais.innerHTML = v2
             resultado_1.innerHTML = v1[0]
             tela_res.innerHTML = v3           
@@ -324,7 +324,9 @@ function corrige(){
                         
                 
         }
+        
         if(v2.length ==  0){
+
             calculo = v1[0]
            
             if(operac_valor.length == 0){
@@ -337,6 +339,14 @@ function corrige(){
             }
             
         }    
+        if (v1.length == 0 && v2.length > 0 ){
+            limpar()
+            v2 = ""
+            
+
+            
+            
+        }
 }
 numeros()
 opera()
