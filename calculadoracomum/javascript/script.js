@@ -40,14 +40,23 @@ function numeros(){
             resultado_amais.innerHTML = v2 // Aparece o v2 quando clicado
             abrirMeiaTela() //Vamos abrir a meia tela
         }
+         if(tela_res.innerHTML == "0" && v1.length == 0){
+             resultado_amais.innerHTML = tela_res.innerHTML
+             resultado_1.innerHTML = tela_res.innerHTML 
+         }
+           
+        
         if (tela_res.innerHTML == "0" && v1.length > 0){
             v1 = []
             v2 = 0
            calculo = 0, v3 = 0
+           
             visor.innerHTML = tela_res.innerHTML
         if (tela_res.innerHTML == "0" && v1.length > 0){
             visor.innerHTML = ''
+            
         }
+       
         }
      
     }) 
@@ -306,9 +315,18 @@ function corrige(){
     submul = submul.replace(' ','')  
     visor.innerHTML = submul.slice(0,-1)
         v2 = v2.slice(0,-1)
+       
+        if (v2.length > 0){
+            resultado_amais.innerHTML = v2
+            resultado_1.innerHTML = v1[0]
+            tela_res.innerHTML = v3           
+            
+                        
+                
+        }
         if(v2.length ==  0){
             calculo = v1[0]
-            operac_valor = operac_valor.slice(0,-1)
+           
             if(operac_valor.length == 0){
                 v1 = v1.toString()
                 v1 = v1.slice(0,-1)
