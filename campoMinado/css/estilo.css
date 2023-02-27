@@ -65,6 +65,7 @@ header{
         height: 80px;
         margin-bottom: 8px;
         cursor: pointer;
-        box-shadow: 6px 7px 8px #0000009c;
+        box-shadow: 6px 7px 8px #00000071;
+        border-radius: 7px;
         
 }
