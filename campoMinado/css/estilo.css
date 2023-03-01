@@ -80,6 +80,9 @@ header{
     border:1px solid white;
     cursor:pointer;
     font-size: 20px;
+    width:150px;
+    margin:auto;
+    
 }
 .placar{
     padding-bottom: 10px;
