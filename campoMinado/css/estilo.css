@@ -51,8 +51,13 @@ header{
 }
 
 .quabrado{
-    display:grid;
+    display:block;
     padding-left: 5px;
+    font-size:40px;
+    text-align: center;
+    width: 450px;
+    height: 400px;
+
    
 }
 .quadradim1,.quadradim2,.quadradim3,.quadradim4,.quadradim5,.quadradim6,.quadradim7,.quadradim8,.quadradim9,.quadradim10,.quadradim11,
@@ -60,8 +65,7 @@ header{
 .quadradim22,.quadradim23,.quadradim24,.quadradim25,
 .quadradim26,.quadradim27,.quadradim28,.quadradim29,.quadradim30
 {
-        font-size:40px;
-        text-align: center;
+        
         background-color: white;
         border:1px solid black;
         width: 70px;
