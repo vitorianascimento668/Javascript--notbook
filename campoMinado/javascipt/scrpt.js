@@ -1,9 +1,12 @@
 let quadrinhos = document.querySelectorAll('.quadro')
-let sorteio, c = 0, contador = 0, atri, vetor = [], p=0, data_num = 0
 let novojogo = document.querySelector('.novo_jogo')
+let dataHora = document.querySelector(".relogio_digital")
+let sorteio, c = 0, contador = 0, atri, vetor = [], p=0, data_num = 0, ss=0,
+minu =00
 
 function inicio (){
     programa()
+    cronometro()
     for (p =0; p < quadrinhos.length ; p++){
         if (vetor[p] != "💣"){
             vetor[p] = "*"
@@ -54,6 +57,19 @@ function novo (){
             
         }
     })
+}
+function cronometro(){
+    setInterval(()=>{
+        ss++
+        if (ss == 60){
+            minu++
+            ss = 0
+    
+        }
+        dataHora.innerHTML = `${minu}:${ss}`
+    },'1000')
+    
+    
 }
 inicio()
 novo()
