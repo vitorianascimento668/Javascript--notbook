@@ -3,7 +3,7 @@ let novojogo = document.querySelector('.novo_jogo')
 let dataHora = document.querySelector(".relogio_digital")
 let ganhouOuperdeu = document.querySelector('.resposta')
 let sorteio, c = 0, contador = 0, atri, vetor = [], p=0, data_num = 0, ss=0,
-minu =0
+minu =0, v_de_ok = 0
 
 function inicio (){
     programa()
@@ -23,12 +23,13 @@ function transforme (){
                data_num = quadros.getAttribute("data-num")
                if (vetor[data_num]== "*"){
                 quadros.innerHTML = "✔️"
+                perdeuOuganhou()
                }
                if(vetor[data_num] == "💣")
             {
                 quadros.innerHTML = "💣"
                 ganhouOuperdeu.innerHTML = "VOCÊ PERDEU !!"
-
+                perda()
             }})
         })
 }
@@ -62,7 +63,7 @@ function novo (){
             }
             
         }
-        
+        ganhouOuperdeu.innerHTML = ""
     })
 }
 function cronometro(){
@@ -75,8 +76,20 @@ function cronometro(){
         }
         ss+=1
         dataHora.innerHTML = `${minu}:${ss}`
-    },'1000')
+        
+    },'1000')   
+}
+function perdeuOuganhou(){
     
+        if (quadrinhos[data_num].innerHTML == "✔️"){
+            v_de_ok++
+        }
+        if (v_de_ok == 50){
+            ganhouOuperdeu.innerHTML = "VOCÊ GANHOU, PARABENS!! "
+        }
+    
+}
+function perdeu(){
     
 }
 inicio()
