@@ -1,6 +1,7 @@
 let quadrinhos = document.querySelectorAll('.quadro')
 let novojogo = document.querySelector('.novo_jogo')
 let dataHora = document.querySelector(".relogio_digital")
+let ganhouOuperdeu = document.querySelector('.resposta')
 let sorteio, c = 0, contador = 0, atri, vetor = [], p=0, data_num = 0, ss=0,
 minu =0
 
@@ -26,6 +27,8 @@ function transforme (){
                if(vetor[data_num] == "💣")
             {
                 quadros.innerHTML = "💣"
+                ganhouOuperdeu.innerHTML = "VOCÊ PERDEU !!"
+
             }})
         })
 }
