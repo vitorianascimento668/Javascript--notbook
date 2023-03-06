@@ -2,11 +2,11 @@ let quadrinhos = document.querySelectorAll('.quadro')
 let novojogo = document.querySelector('.novo_jogo')
 let dataHora = document.querySelector(".relogio_digital")
 let sorteio, c = 0, contador = 0, atri, vetor = [], p=0, data_num = 0, ss=0,
-minu =00
+minu =0
 
 function inicio (){
     programa()
-    cronometro()
+    
     for (p =0; p < quadrinhos.length ; p++){
         if (vetor[p] != "💣"){
             vetor[p] = "*"
@@ -18,6 +18,7 @@ function inicio (){
 function transforme (){
         quadrinhos.forEach((quadros)=>{
             quadros.addEventListener("click",()=>{
+                
                data_num = quadros.getAttribute("data-num")
                if (vetor[data_num]== "*"){
                 quadros.innerHTML = "✔️"
@@ -53,19 +54,23 @@ function novo (){
                 inicio ()
                 programa()
                 transforme()
+                ss = 0
+                minu = 0
             }
             
         }
+        
     })
 }
 function cronometro(){
     setInterval(()=>{
-        ss++
+        
         if (ss == 60){
-            minu++
+            minu+= 1
             ss = 0
     
         }
+        ss+=1
         dataHora.innerHTML = `${minu}:${ss}`
     },'1000')
     
@@ -74,3 +79,4 @@ function cronometro(){
 inicio()
 novo()
 transforme ()
+cronometro()
