@@ -91,6 +91,11 @@ header{
 .placar{
     padding-bottom: 10px;
 }
+.resposta{
+    padding-bottom: 10px;
+    font-size:20px;
+    font-weight: bold;
+}
 .footerBAIXO{
     text-align: center;
     color: white;
