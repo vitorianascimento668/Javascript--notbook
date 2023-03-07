@@ -13,6 +13,7 @@ function inicio (){
             vetor[p] = "*"
         }
     }
+
     transforme()
 
 }
@@ -29,7 +30,7 @@ function transforme (){
             {
                 quadros.innerHTML = "💣"
                 ganhouOuperdeu.innerHTML = "VOCÊ PERDEU !!"
-                perda()
+                perdeu()
             }})
         })
 }
@@ -84,15 +85,22 @@ function perdeuOuganhou(){
         if (quadrinhos[data_num].innerHTML == "✔️"){
             v_de_ok++
         }
-        if (v_de_ok == 50){
+        if (v_de_ok == 25){
             ganhouOuperdeu.innerHTML = "VOCÊ GANHOU, PARABENS!! "
         }
     
 }
 function perdeu(){
-    
+    for(let i=0; i < quadrinhos.length ;i++ ){
+        if(vetor[i] == "💣"){
+            quadrinhos[i].innerHTML = "💣"
+        }
+        if(quadrinhos[i].innerHTML == "" && quadrinhos[i].innerHTML != "✔️"){
+            quadrinhos[i].innerHTML = "❌"
+        }
+        
+    }
 }
 inicio()
 novo()
-transforme ()
 cronometro()
