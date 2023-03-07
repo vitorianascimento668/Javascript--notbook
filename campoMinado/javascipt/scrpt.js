@@ -3,7 +3,7 @@ let novojogo = document.querySelector('.novo_jogo')
 let dataHora = document.querySelector(".relogio_digital")
 let ganhouOuperdeu = document.querySelector('.resposta')
 let sorteio, c = 0, contador = 0, atri, vetor = [], p=0, data_num = 0, ss=0,
-minu =0, v_de_ok = 0
+minu =0, v_de_ok = 0, soma_final = 0
 
 function inicio (){
     programa()
@@ -94,11 +94,15 @@ function perdeu(){
     for(let i=0; i < quadrinhos.length ;i++ ){
         if(vetor[i] == "💣"){
             quadrinhos[i].innerHTML = "💣"
+            soma_final++
         }
         if(quadrinhos[i].innerHTML == "" && quadrinhos[i].innerHTML != "✔️"){
             quadrinhos[i].innerHTML = "❌"
-        }
-        
+            soma_final++
+        }    
+    }
+    if(soma_final == 29){
+        ganhouOuperdeu.innerHTML = "VOCÊ PERDEU !!! Que pena !"
     }
 }
 inicio()
