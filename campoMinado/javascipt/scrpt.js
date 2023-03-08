@@ -4,10 +4,11 @@ let dataHora = document.querySelector(".relogio_digital")
 let ganhouOuperdeu = document.querySelector('.resposta')
 let pontos = document.querySelector(".placar")
 let sorteio, c = 0, contador = 0, atri, vetor = [], p=0, data_num = 0, ss=0,
-minu =0, v_de_ok = 0, soma_final = 0
+minu =0, v_de_ok = 0, soma_final = 0, ver=false
 
 function inicio (){
     programa()
+    
     
     for (p =0; p < quadrinhos.length ; p++){
         if (vetor[p] != "💣"){
@@ -21,7 +22,7 @@ function inicio (){
 function transforme (){
         quadrinhos.forEach((quadros)=>{
             quadros.addEventListener("click",()=>{
-                
+                naoClique()
                data_num = quadros.getAttribute("data-num")
                if (vetor[data_num]== "*"){
                 quadros.innerHTML = "✔️"
@@ -32,6 +33,7 @@ function transforme (){
                 quadros.innerHTML = "💣"
                 ganhouOuperdeu.innerHTML = "VOCÊ PERDEU !!"
                 perdeu()
+                
             }})
         })
 }
@@ -95,6 +97,42 @@ function perdeuOuganhou(){
             
         }
     
+}
+function naoClique(){
+    for(let l =0; l < quadrinhos.length ; l++){
+        
+    
+        if (quadrinhos[l].innerHTML == "❌"){
+            ver = true
+        }
+    }
+    if (ver == true){
+        alert("ATENÇÃO, VOCÊ PERDEU, TENTE DE NOVO")
+        c= 0
+        p = 0
+        vetor = []
+        ver = false
+        
+        for (contador = 0;contador < 30;contador++){
+            quadrinhos[contador].innerHTML = ""
+            
+            if (contador == 29){
+                vetor = []
+                ss = 0
+                minu = 0
+                v_de_ok = 0
+                c=0
+                soma_final = 0
+                
+            }
+            
+        }
+        
+        ganhouOuperdeu.innerHTML = ""
+        pontos.innerHTML = "PONTOS:"
+        inicio()
+        
+    }
 }
 function perdeu(){
     pontos.innerHTML = `PONTOS: ${v_de_ok}`
