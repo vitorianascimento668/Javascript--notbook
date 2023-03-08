@@ -7,7 +7,7 @@ let sorteio, c = 0, contador = 0, atri, vetor = [], p=0, data_num = 0, ss=0,
 minu =0, v_de_ok = 0, soma_final = 0, ver=false
 
 function inicio (){
-    programa()
+   
     
     
     for (p =0; p < quadrinhos.length ; p++){
@@ -69,7 +69,10 @@ function novo (){
             }
             
         }
+         programa()
+          
         inicio()
+        
         ganhouOuperdeu.innerHTML = ""
         pontos.innerHTML = "PONTOS:"
     })
@@ -130,7 +133,9 @@ function naoClique(){
         
         ganhouOuperdeu.innerHTML = ""
         pontos.innerHTML = "PONTOS:"
+        programa()
         inicio()
+         
         
     }
 }
@@ -155,5 +160,6 @@ function perdeu(){
 }
 inicio()
 novo()
+programa()
 cronometro()
 transforme()
