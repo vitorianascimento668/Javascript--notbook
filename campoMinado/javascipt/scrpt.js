@@ -2,6 +2,7 @@ let quadrinhos = document.querySelectorAll('.quadro')
 let novojogo = document.querySelector('.novo_jogo')
 let dataHora = document.querySelector(".relogio_digital")
 let ganhouOuperdeu = document.querySelector('.resposta')
+let pontos = document.querySelector(".placar")
 let sorteio, c = 0, contador = 0, atri, vetor = [], p=0, data_num = 0, ss=0,
 minu =0, v_de_ok = 0, soma_final = 0
 
@@ -14,7 +15,7 @@ function inicio (){
         }
     }
 
-    transforme()
+    
 
 }
 function transforme (){
@@ -56,15 +57,19 @@ function novo (){
             quadrinhos[contador].innerHTML = ""
             
             if (contador == 29){
-                inicio ()
-                programa()
-                transforme()
+                vetor = []
                 ss = 0
                 minu = 0
+                v_de_ok = 0
+                c=0
+                soma_final = 0
+                
             }
             
         }
+        inicio()
         ganhouOuperdeu.innerHTML = ""
+        pontos.innerHTML = "PONTOS:"
     })
 }
 function cronometro(){
@@ -87,10 +92,12 @@ function perdeuOuganhou(){
         }
         if (v_de_ok == 25){
             ganhouOuperdeu.innerHTML = "VOCÊ GANHOU, PARABENS!! "
+            
         }
     
 }
 function perdeu(){
+    pontos.innerHTML = `PONTOS: ${v_de_ok}`
     for(let i=0; i < quadrinhos.length ;i++ ){
         if(vetor[i] == "💣"){
             quadrinhos[i].innerHTML = "💣"
@@ -101,10 +108,14 @@ function perdeu(){
             soma_final++
         }    
     }
-    if(soma_final == 29){
-        ganhouOuperdeu.innerHTML = "VOCÊ PERDEU !!! Que pena !"
-    }
+    setTimeout(()=>{
+        if(soma_final == 29){
+            ganhouOuperdeu.innerHTML = "VOCÊ PERDEU !!! Que pena !"
+            
+        }
+    },'1000')
 }
 inicio()
 novo()
 cronometro()
+transforme()
