@@ -91,7 +91,16 @@ function  mudanca_cor(){
 
     }
 }
+function posicaoTela() {
+    body_meio.addEventListener("click",(e)=>{
+        let rect = body_meio.getBoundingClientRect()
+        let x =  e.clientX - rect.left;
+        let y =  e.clientY - rect.top;
+      
+      console.log("Esquerda: " + x + " - Topo: " + y);
 
+    })
+}
 
 
 // VOU FAZER ESSES BOTÃO DEPOIS.
