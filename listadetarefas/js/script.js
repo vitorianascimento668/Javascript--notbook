@@ -34,34 +34,35 @@ function  mudanca_cor(){
            margin_cima.style.backgroundColor="rgb(250, 250, 32)"
            footer_baixo.style.backgroundColor="rgb(250, 250, 32)"
            texto_caixa.style.backgroundColor="rgb(250, 250, 32)"
-            
+           texto_caixa.style.color = "black"
         break
         case valor_cor = "verde":
             body_meio.style.backgroundColor="rgb(141, 199, 141)"
             margin_cima.style.backgroundColor="rgb(141, 199, 141)"
             footer_baixo.style.backgroundColor="rgb(141, 199, 141)"
             texto_caixa.style.backgroundColor="rgb(141, 199, 141)"
-            
+            texto_caixa.style.color = "black"
         break
         case valor_cor = "lilais":
             body_meio.style.backgroundColor="rgb(255, 154, 250)"
             margin_cima.style.backgroundColor="rgb(255, 154, 250)"
             footer_baixo.style.backgroundColor="rgb(255, 154, 250)"
             texto_caixa.style.backgroundColor="rgb(255, 154, 250)"
-            
+            texto_caixa.style.color = "black"
         break
         case valor_cor = "rosa":
             body_meio.style.backgroundColor="rgb(230, 42, 145)"
             margin_cima.style.backgroundColor="rgb(230, 42, 145)"
             footer_baixo.style.backgroundColor="rgb(230, 42, 145)"
             texto_caixa.style.backgroundColor="rgb(230, 42, 145)"
-            
+            texto_caixa.style.color = "black"
         break
         case valor_cor = "red":
             body_meio.style.backgroundColor="red"
             margin_cima.style.backgroundColor="red"
             footer_baixo.style.backgroundColor="red"
             texto_caixa.style.backgroundColor="red"
+            texto_caixa.style.color = "white"
             
         break
         case valor_cor = "azul":
@@ -69,13 +70,14 @@ function  mudanca_cor(){
             margin_cima.style.backgroundColor="rgb(147, 192, 218)"
             footer_baixo.style.backgroundColor="rgb(147, 192, 218)"
             texto_caixa.style.backgroundColor="rgb(147, 192, 218)"
-            
+            texto_caixa.style.color = "white"
         break
         case valor_cor = "cinza":
             body_meio.style.backgroundColor="rgb(163, 154, 154)"
             margin_cima.style.backgroundColor="rgb(163, 154, 154)"
             footer_baixo.style.backgroundColor="rgb(163, 154, 154)"
             texto_caixa.style.backgroundColor="rgb(163, 154, 154)"
+            texto_caixa.style.color = "white"
             
         break
         case valor_cor = "preto":
@@ -83,6 +85,7 @@ function  mudanca_cor(){
             margin_cima.style.backgroundColor="rgb(66 66 66)"
             footer_baixo.style.backgroundColor="rgb(66 66 66)"
             texto_caixa.style.backgroundColor="rgb(66 66 66)"
+            texto_caixa.style.color = "white"
             
         break
 
